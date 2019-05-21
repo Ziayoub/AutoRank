@@ -16,7 +16,7 @@ class CreateModelsTable extends Migration
         Schema::create('models', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
-            $table->bigInteger('brand_id');
+            $table->unsignedBigInteger('brand_id');
             $table->timestamps();
         });
     }
