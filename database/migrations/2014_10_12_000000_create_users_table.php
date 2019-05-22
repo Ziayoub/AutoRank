@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('role',['admin','moderateur']);
             $table->boolean('approved');
 
-            $table->integer('agency_id');
+            $table->unsignedBigInteger('agency_id');
 
             $table->rememberToken();
             $table->timestamps();
