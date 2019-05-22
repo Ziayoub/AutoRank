@@ -19,6 +19,7 @@ class CreateAttachmentsTable extends Migration
             $table->string('type');
 
             $table->unsignedBigInteger('car_id');
+            $table->unsignedBigInteger('agency_id');
 
             $table->timestamps();
         });
