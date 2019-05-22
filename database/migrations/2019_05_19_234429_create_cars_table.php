@@ -21,8 +21,8 @@ class CreateCarsTable extends Migration
             $table->double('price');
             $table->double('kilometers');
             $table->integer('seats');
-            $table->string('fuel');
-            $table->string('speed');
+            $table->enum('fuel', ['gasoline','diesel']);
+            $table->enum('speed', ['automatic','manual']);
 
             $table->unsignedBigInteger('agency_id');
             $table->unsignedBigInteger('model_id');
