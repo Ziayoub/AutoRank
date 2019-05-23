@@ -19,6 +19,9 @@ class CreateAgenciesTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('city');
+            $table->string('facebook');
+            $table->string('whatsapp');
+            $table->string('instagram');
 
             $table->timestamps();
         });
