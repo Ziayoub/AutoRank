@@ -1,0 +1,25 @@
+.fc-event {
+    padding: 10px !important;
+    // background-color: rgb(255, 97, 97) !important;
+    // border-color: rgb(255, 65, 65) !important;
+    border: none !important;
+  }
+
+#calendar-car {
+  .fc-event.fc-draggable {
+    border-right: 4px solid black !important;
+    &::after {
+      content: "Supprimer";
+    }
+  }
+}
+
+
+#external-events .fc-event {
+  width: 150px;
+  cursor: grab;
+}
+
+.fc-title {
+  color: white;
+}
