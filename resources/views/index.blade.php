@@ -88,7 +88,7 @@
               </div>
              <div class="row mt-5">
                 <div class="col-12 text-right">
-                  <button type="submit" class="btn btn-primary btn-lg">Rechercher</button>
+                  <a type="submit" class="btn btn-primary btn-lg" href="/cars">Rechercher</a>
                 </div>
               </div>
           </form>
@@ -107,7 +107,7 @@
             </a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="agency.html">Agence 1</a>
+                <a href="/agency">Agence 1</a>
               </h4>
               <p class="card-text">
                 <div class="mb-2">
@@ -128,7 +128,7 @@
       </div>
       <!-- /.row -->
       <div class="text-center my-5">
-        <a href="agencies.html" class="h4">Voir toutes les agences</a>
+        <a href="/agencies" class="h4">Voir toutes les agences</a>
       </div>
 
       <div class="space-200"></div>
@@ -147,7 +147,7 @@
             <div class="card-body">
               <h4 class="card-title">
                 <div class="d-flex justify-content-between">
-                  <a href="car.html">Fiat Panda</a>
+                  <a href="/car">Fiat Panda</a>
                   <h5 class="text-right">200 <small>DH/Jour</small></h5>
                 </div>
               </h4>
@@ -175,7 +175,7 @@
       <!-- /.row -->
 
       <div class="text-center my-5">
-        <a href="cars.html" class="h4">Voir 31 autre voitures...</a>
+        <a href="/cars" class="h4">Voir 31 autre voitures...</a>
       </div>
 
       <div class="space-200"></div>
@@ -186,7 +186,7 @@
           <h2>Êtes-vous propréritère d'une agence de location de voitures?</h2>
           <p>Rejoindre notre réseau gratuitement</p>
 
-          <a class="mt-4 btn btn-lg btn-primary" href="#">Inscrire mon agence</a>
+          <a class="mt-4 btn btn-lg btn-primary" href="/register">Inscrire mon agence</a>
         </div>
         <div class="col-lg-6 position-relative">
           <div class="art-join-us">

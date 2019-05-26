@@ -10,14 +10,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-link text-uppercase text-letter-spacing text-sm" href="/">Home</a>
+            </li>
           <li class="nav-item">
-            <a class="nav-link text-uppercase text-letter-spacing text-sm" href="cars.html">Voitures</a>
+            <a class="nav-link text-uppercase text-letter-spacing text-sm" href="/cars">Voitures</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-uppercase text-letter-spacing text-sm" href="agencies.html">Agences</a>
+            <a class="nav-link text-uppercase text-letter-spacing text-sm" href="/agencies">Agences</a>
           </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase text-letter-spacing text-sm" href="/contact">Contact</a>
+            </li>
           <li class="nav-item">
-            <a class="nav-link text-uppercase text-letter-spacing text-sm" href="about.html">À Propos</a>
+            <a class="nav-link text-uppercase text-letter-spacing text-sm" href="/about">À Propos</a>
           </li>
 
           <li class="nav-item dropdown ml-4">
