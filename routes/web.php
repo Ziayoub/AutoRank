@@ -16,3 +16,14 @@ Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/about','PagesController@about');
+Route::get('/contact','PagesController@contact');
+
+Route::get('/agencies','PagesController@agencies');
+Route::get('/agency','PagesController@agency');
+
+Route::get('/cars','PagesController@cars');
+Route::get('/car','PagesController@car');
+
+
+
