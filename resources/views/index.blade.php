@@ -88,7 +88,7 @@
               </div>
              <div class="row mt-5">
                 <div class="col-12 text-right">
-                  <a type="submit" class="btn btn-primary btn-lg" href="/cars">Rechercher</a>
+                  <button type="submit" class="btn btn-primary btn-lg" href="/cars">Rechercher</button>
                 </div>
               </div>
           </form>

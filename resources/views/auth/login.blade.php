@@ -6,7 +6,7 @@
     @include('partials.navbar')
 
     <div class="container">
-      <br><br>
+      <br><br><br>
       <div class="card card-login mx-auto">
         <div class="card-body">
           <h4 class="mb-5">Se Connecter</h4>

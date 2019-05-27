@@ -1,8 +1,11 @@
 @extends('layout')
 
 @section('content')
+
+    @include('partials.navbar')
+
      <div class="container">
-      <br><br>
+      <br><br><br>
       <div class="card card-register mx-auto">
         <!-- <div class="card-header">Créer un compte</div> -->
         <div class="card-body">
