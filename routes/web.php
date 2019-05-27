@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(["verify" => true]);
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'PagesController@index')->name('index');
@@ -24,7 +24,8 @@ Route::get('/agencies/{id}','PagesController@agency')->name('agency');;
 Route::get('/cars','PagesController@cars')->name('cars');
 Route::get('/cars/{id}','PagesController@car')->name('car');;
 
-
+// Moderator is redirected to this route when he creates an account
+// before the admin validates it.
 Route::get('/pending', function () {
     return view('pending');
 });

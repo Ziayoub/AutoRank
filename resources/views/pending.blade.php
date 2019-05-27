@@ -3,6 +3,6 @@
 @section('content')
     <div class="text-center">
         <h1>Inscription en cours...</h1>
-        <p>On va vous contacter par email une vois votre inscription est validée.</p>
+        <p>Nous allons vous contacter par email une fois votre inscription est validée par un administrateur.</p>
     </div>
 @stop
