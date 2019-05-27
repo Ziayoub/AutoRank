@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Agency;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/pending';
 
     /**
      * Create a new controller instance.
@@ -40,6 +43,22 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+
+        // This should be commented becasue user shouldn't not be logged in automatically,
+        // Admin should validate the moderator first.
+
+        // $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,9 +68,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'agencyName' => ['required', 'string', 'max:255'],
+            'agencyAddress' => ['required', 'string', 'max:255'],
+            'agencyCity' => ['required', 'string', 'max:255'],
+            'agencyPhone' => ['required', 'string', 'numeric'],
         ]);
     }
 
@@ -63,10 +88,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+         $agency = Agency::create([
+            'name' => $data['agencyName'],
+            'phone' => $data['agencyPhone'],
+            'address' => $data['agencyAddress'],
+            'city' => $data['agencyCity']
         ]);
+
+        $user = new User([
+            'first_name' => $data['firstName'],
+            'last_name' => $data['lastName'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
+            'approved' => false,
+            'role' => 'moderator',
+        ]);
+
+        $user->agency()->associate($agency);
+        $user->save();
+
+        return $user;
     }
 }

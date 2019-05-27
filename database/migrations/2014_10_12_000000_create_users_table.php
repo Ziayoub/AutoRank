@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['admin','moderateur']);
+            $table->enum('role', ['admin','moderator']);
             $table->boolean('approved');
 
             $table->unsignedBigInteger('agency_id');

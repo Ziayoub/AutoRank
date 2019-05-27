@@ -12,18 +12,19 @@
 */
 
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', 'PagesController@index')->name('index');
+Route::get('/about','PagesController@about')->name('about');
+Route::get('/contact','PagesController@contact')->name('contact');;
+
+Route::get('/agencies','PagesController@agencies')->name('agencies');;
+Route::get('/agencies/{id}','PagesController@agency')->name('agency');;
+
+Route::get('/cars','PagesController@cars')->name('cars');
+Route::get('/cars/{id}','PagesController@car')->name('car');;
+
+
+Route::get('/pending', function () {
+    return view('pending');
 });
-Route::get('/about','PagesController@about');
-Route::get('/contact','PagesController@contact');
-
-Route::get('/agencies','PagesController@agencies');
-Route::get('/agency','PagesController@agency');
-
-Route::get('/cars','PagesController@cars');
-Route::get('/car','PagesController@car');
-
-
-
