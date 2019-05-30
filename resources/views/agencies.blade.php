@@ -116,6 +116,7 @@
 </div>
 
 
-    @include('partials.footer')
+
 
 @stop
+@include('partials.footer')
