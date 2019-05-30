@@ -10,7 +10,7 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;Voitures</h5>
-                    <a href="{{route('moderator.showCreateCar')}}" class="mb-4 btn btn-primary">Ajouter une voiture</a>
+                    <a href="{{route('mod.showCreateCar')}}" class="mb-4 btn btn-primary">Ajouter une voiture</a>
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -31,7 +31,7 @@
                             <tbody>
                             <tr>
                                 <th scope="row">
-                                    <a href="{{ route('moderator.showUpdateCar', 1) }}">1</a>
+                                    <a href="{{ route('mod.showUpdateCar', 1) }}">1</a>
                                 </th>
                                 <td>
                                     <img src="http://placehold.it/400x400" alt="" style="height:50px;">
@@ -46,8 +46,8 @@
                                 <td>Manuelle</td>
                                 <td style="min-width: 170px">
                                     <div>
-                                        <a href="{{ route('moderator.showUpdateCar', 1) }}" class="btn btn-sm btn-secondary">Modifier</a>
-                                        <a href="{{ route('moderator.deleteCar', 1) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                                        <a href="{{ route('mod.showUpdateCar', 1) }}" class="btn btn-sm btn-secondary">Modifier</a>
+                                        <a href="{{ route('mod.deleteCar', 1) }}" class="btn btn-sm btn-danger">Supprimer</a>
                                     </div>
                                 </td>
                             </tr>

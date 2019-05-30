@@ -15,10 +15,10 @@
                      src="https://argon-dashboard-laravel.creative-tim.com/argon/img/theme/team-4-800x800.jpg">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                <a class="dropdown-item" href="{{route('moderator.index')}}">
+                <a class="dropdown-item" href="{{route('mod.index')}}">
                     <i class="fas fa-columns"></i>&nbsp;&nbsp;Tableau de bord
                 </a>
-                <a class="dropdown-item" href="{{ route('moderator.showUpdateProfile') }}">
+                <a class="dropdown-item" href="{{ route('mod.showUpdateProfile') }}">
                     <i class="fas fa-user"></i>&nbsp;&nbsp;Compte
                 </a>
                 <div class="dropdown-divider"></div>

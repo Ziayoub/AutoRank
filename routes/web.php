@@ -26,18 +26,18 @@ Route::get('/cars/{id}','PagesController@car')->name('car');;
 
 /*  ---------------- Moderator Routes ---------------- */
 
-Route::get('/moderator','ModeratorController@index')->name('moderator.index');
+Route::get('/mod','ModeratorController@index')->name('mod.index');
 
-Route::get('/moderator/profile','ModeratorController@showUpdateProfile')->name('moderator.showUpdateProfile');
-Route::post('/moderator/profile','ModeratorController@updateProfile')->name('moderator.updateProfile');
+Route::get('/mod/profile','ModeratorController@showUpdateProfile')->name('mod.showUpdateProfile');
+Route::post('/mod/profile','ModeratorController@updateProfile')->name('mod.updateProfile');
 
-Route::get('/moderator/agency','ModeratorController@showUpdateAgency')->name('moderator.showUpdateAgency');
-Route::post('/moderator/agency','ModeratorController@updateAgency')->name('moderator.updateAgency');
+Route::get('/mod/agency','ModeratorController@showUpdateAgency')->name('mod.showUpdateAgency');
+Route::post('/mod/agency','ModeratorController@updateAgency')->name('mod.updateAgency');
 
-Route::get('/moderator/cars','ModeratorController@showCars')->name('moderator.showCars');
-Route::get('/moderator/cars/new','ModeratorController@showCreateCar')->name('moderator.showCreateCar');
-Route::post('/moderator/cars/new','ModeratorController@createCar')->name('moderator.createCar');
+Route::get('/mod/cars','ModeratorController@showCars')->name('mod.showCars');
+Route::get('/mod/cars/new','ModeratorController@showCreateCar')->name('mod.showCreateCar');
+Route::post('/mod/cars/new','ModeratorController@createCar')->name('mod.createCar');
 
-Route::get('/moderator/cars/{id}','ModeratorController@showUpdateCar')->name('moderator.showUpdateCar');
-Route::post('/moderator/cars/{id}','ModeratorController@updateCar')->name('moderator.updateCar');
-Route::delete('/moderator/cars/{id}','ModeratorController@deleteCar')->name('moderator.deleteCar');
+Route::get('/mod/cars/{id}','ModeratorController@showUpdateCar')->name('mod.showUpdateCar');
+Route::post('/mod/cars/{id}','ModeratorController@updateCar')->name('mod.updateCar');
+Route::delete('/mod/cars/{id}','ModeratorController@deleteCar')->name('mod.deleteCar');
