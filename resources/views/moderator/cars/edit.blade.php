@@ -2,6 +2,21 @@
 
 @section('title', 'Voiture')
 
+
+@section('styles')
+  <!-- Fullcalendar -->
+  <link href="{{ asset('vendor/fullcalendar/core/main.css') }}" rel='stylesheet' />
+  <link href="{{ asset('vendor/fullcalendar/daygrid/main.css') }}" rel='stylesheet' />
+  <link href="{{ asset('vendor/fullcalendar/timegrid/main.css') }}" rel='stylesheet' />
+  <link href="{{ asset('vendor/fullcalendar/list/main.css') }}" rel='stylesheet' />
+  <script src="{{ asset('vendor/fullcalendar/core/main.js') }}"></script>
+  <script src="{{ asset('vendor/fullcalendar/core/locales/fr.js') }}"></script>
+  <script src="{{ asset('vendor/fullcalendar/interaction/main.js') }}"></script>
+  <script src="{{ asset('vendor/fullcalendar/daygrid/main.js') }}"></script>
+  <script src="{{ asset('vendor/fullcalendar/timegrid/main.js') }}"></script>
+  <script src="{{ asset('vendor/fullcalendar/list/main.js') }}"></script>
+@stop
+
 @section('content')
 
     <div class="container-fluid">
@@ -158,4 +173,56 @@
     </div>
     <!-- /.container-fluid -->
 
+@stop
+
+@section('scripts')
+  <!-- Demo scripts for this page-->
+  <!-- Fullcalendar setup script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var Calendar = FullCalendar.Calendar;
+      var Draggable = FullCalendarInteraction.Draggable
+
+      /* initialize the external events
+      -----------------------------------------------------------------*/
+
+      var containerEl = document.getElementById('external-events-list');
+      new Draggable(containerEl, {
+        itemSelector: '.fc-event',
+        eventData: function (eventEl) {
+          return {
+            title: eventEl.innerText.trim()
+          }
+        }
+      });
+
+      /* initialize the calendar
+      -----------------------------------------------------------------*/
+
+      var calendarEl = document.getElementById('calendar-car');
+      var calendar = new Calendar(calendarEl, {
+        plugins: ['interaction', 'dayGrid', 'list'],
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,listWeek'
+        },
+        locale: 'fr',
+        editable: true,
+        droppable: true, // this allows things to be dropped onto the calendar
+        drop: function (arg) {
+          // is the "remove after drop" checkbox checked?
+
+        },
+        eventClick: function (arg) {
+          if (confirm('Êtes-vous certain de vouloir supprimer cette réservation?')) {
+            arg.event.remove()
+          }
+        }
+      });
+      calendar.render();
+
+    });
+
+  </script>
 @stop

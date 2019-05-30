@@ -31,7 +31,7 @@
                             <tbody>
                             <tr>
                                 <th scope="row">
-                                    <a href="./car.html">1</a>
+                                    <a href="{{ route('moderator.showUpdateCar', 1) }}">1</a>
                                 </th>
                                 <td>
                                     <img src="http://placehold.it/400x400" alt="" style="height:50px;">
@@ -47,7 +47,7 @@
                                 <td style="min-width: 170px">
                                     <div>
                                         <a href="{{ route('moderator.showUpdateCar', 1) }}" class="btn btn-sm btn-secondary">Modifier</a>
-                                        <a href="#" class="btn btn-sm btn-danger">Supprimer</a>
+                                        <a href="{{ route('moderator.deleteCar', 1) }}" class="btn btn-sm btn-danger">Supprimer</a>
                                     </div>
                                 </td>
                             </tr>

@@ -45,3 +45,4 @@ Route::post('/moderator/cars/new','ModeratorController@createCar')->name('modera
 
 Route::get('/moderator/cars/{id}/update','ModeratorController@showUpdateCar')->name('moderator.showUpdateCar');
 Route::post('/moderator/cars/{id}/update','ModeratorController@updateCar')->name('moderator.updateCar');
+Route::delete('/moderator/cars/{id}/delete','ModeratorController@deleteCar')->name('moderator.deleteCar');
