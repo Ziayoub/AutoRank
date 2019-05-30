@@ -26,6 +26,22 @@ Route::get('/cars/{id}','PagesController@car')->name('car');;
 
 // Moderator is redirected to this route when he creates an account
 // before the admin validates it.
+
 Route::get('/pending', function () {
     return view('pending');
 });
+
+//####### Moderator Routes #########//
+
+Route::get('/moderator/index','ModeratorController@index')->name('ModeratorIndex');
+
+Route::get('moderator/agency','ModeratorController@agency')->name('ModeratorAgency');
+
+Route::get('moderator/profile','ModeratorController@showUpdateProfile')->name('ModeratorProfile');
+
+
+Route::get('moderator/cars','ModeratorController@updateProfile')->name('ModeratorCars');
+Route::get('moderator/cars/new','ModeratorController@updateCar')->name('ModeratorNewCar');
+Route::get('moderator/cars/edit','ModeratorController@cars')->name('ModeratorEditCar');
+
+

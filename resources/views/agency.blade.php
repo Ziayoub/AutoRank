@@ -8,7 +8,7 @@
     @include('partials.navbar')
 
 
-    <header class="bg-primary py-5">
+<header class="bg-primary py-5">
     <div class="container h-100">
 
         <div class="row h-100 justify-content-between align-items-center">
