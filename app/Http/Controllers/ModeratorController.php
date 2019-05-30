@@ -15,20 +15,42 @@ class ModeratorController extends Controller
         return view('moderator.index');
     }
 
+
+    /* ---------------- Agency: GET & POST  ---------------- */
+
     /**
      * GET /moderator/agency
      */
-    public function showAgency()
+    public function showUpdateAgency()
     {
         return view('moderator.agency');
     }
 
     /**
+     * POST /moderator/agency
+     */
+    public function updateAgency()
+    {
+        // update the agency, and then redirect back to the profile.
+    }
+
+
+    /* ---------------- Profile: GET & POST  ---------------- */
+
+    /**
      * GET /moderator/profile
      */
-    public function showProfile()
+    public function showUpdateProfile()
     {
         return view('moderator.profile');
+    }
+
+    /**
+     * POST /moderator/profile
+     */
+    public function updateProfile()
+    {
+        // update the profile, and then redirect back to the profile.
     }
 
 

@@ -6,7 +6,7 @@
         </a>
     </li>
     <li class="nav-item dropdown">
-        <a class="nav-link" href="{{route('moderator.showAgency')}}">
+        <a class="nav-link" href="{{route('moderator.showUpdateAgency')}}">
             <i class="fas fa-fw fa-hotel"></i>
             <span>Agence</span>
         </a>
