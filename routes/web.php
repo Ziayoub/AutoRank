@@ -26,22 +26,22 @@ Route::get('/cars/{id}','PagesController@car')->name('car');;
 
 // Moderator is redirected to this route when he creates an account
 // before the admin validates it.
-
 Route::get('/pending', function () {
     return view('pending');
 });
 
-//####### Moderator Routes #########//
 
-Route::get('/moderator/index','ModeratorController@index')->name('ModeratorIndex');
+/*  ---------------- Moderator Routes ---------------- */
 
-Route::get('moderator/agency','ModeratorController@agency')->name('ModeratorAgency');
+Route::get('/moderator','ModeratorController@index')->name('moderator.index');
+Route::get('/moderator/profile','ModeratorController@showProfile')->name('moderator.showProfile');
 
-Route::get('moderator/profile','ModeratorController@showUpdateProfile')->name('ModeratorProfile');
+Route::get('/moderator/agency','ModeratorController@showAgency')->name('moderator.showAgency');
+Route::post('/moderator/agency','ModeratorController@updateAgency')->name('moderator.updateAgency');
 
+Route::get('/moderator/cars','ModeratorController@showCars')->name('moderator.showCars');
+Route::get('/moderator/cars/new','ModeratorController@showCreateCar')->name('moderator.showCreateCar');
+Route::post('/moderator/cars/new','ModeratorController@createCar')->name('moderator.createCar');
 
-Route::get('moderator/cars','ModeratorController@updateProfile')->name('ModeratorCars');
-Route::get('moderator/cars/new','ModeratorController@updateCar')->name('ModeratorNewCar');
-Route::get('moderator/cars/edit','ModeratorController@cars')->name('ModeratorEditCar');
-
-
+Route::get('/moderator/cars/{id}/update','ModeratorController@showUpdateCar')->name('moderator.showUpdateCar');
+Route::post('/moderator/cars/{id}/update','ModeratorController@updateCar')->name('moderator.updateCar');

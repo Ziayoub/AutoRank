@@ -2,13 +2,13 @@
 
 @section('title', 'Index')
 
-@section('style')
+@section('styles')
     <!-- Fullcalendar -->
-    <link href='../vendor/fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='../vendor/fullcalendar/list/main.css' rel='stylesheet' />
-    <script src='../vendor/fullcalendar/core/main.js'></script>
-    <script src='../vendor/fullcalendar/core/locales/fr.js'></script>
-    <script src='../vendor/fullcalendar/daygrid/main.js'></script>
+    <link href='{{ asset('/vendor/fullcalendar/core/main.css') }}' rel='stylesheet' />
+    <link href='{{ asset('/vendor/fullcalendar/list/main.css') }}' rel='stylesheet' />
+    <script src='{{ asset('/vendor/fullcalendar/core/main.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/core/locales/fr.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/daygrid/main.js') }}'></script>
 @stop
 
 @section('content')
@@ -75,19 +75,11 @@
     </div>
     <!-- /.container-fluid -->
 @stop
- @section('script')
-     <!-- Bootstrap core JavaScript-->
-     <script src="../vendor/jquery/jquery.min.js"></script>
-     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Core plugin JavaScript-->
-     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+@section('scripts')
 
-     <!-- Custom scripts for all pages-->
-     <script src="../js/sb-admin.min.js"></script>
-
-     <!-- Fullcalendar setup script -->
-     <script>
+    <!-- Fullcalendar setup script -->
+    <script>
 
          document.addEventListener('DOMContentLoaded', function () {
              var calendarEl = document.getElementById('calendar-index');

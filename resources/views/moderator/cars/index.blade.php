@@ -1,6 +1,7 @@
 @extends('layout-admin')
 
 @section('title', 'Voitures')
+
 @section('content')
 
     <div class="container-fluid mt-3">
@@ -9,7 +10,7 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;Voitures</h5>
-                    <a href="{{route('ModeratorNewCar')}}" class="mb-4 btn btn-primary">Ajouter une voiture</a>
+                    <a href="{{route('moderator.showCreateCar')}}" class="mb-4 btn btn-primary">Ajouter une voiture</a>
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -45,7 +46,7 @@
                                 <td>Manuelle</td>
                                 <td style="min-width: 170px">
                                     <div>
-                                        <a href="{{route('ModeratorEditCar')}}" class="btn btn-sm btn-secondary">Modifier</a>
+                                        <a href="{{ route('moderator.showUpdateCar', 1) }}" class="btn btn-sm btn-secondary">Modifier</a>
                                         <a href="#" class="btn btn-sm btn-danger">Supprimer</a>
                                     </div>
                                 </td>

@@ -1,23 +1,23 @@
 @extends('layout-admin')
 
 @section('title', 'Voiture')
+
 @section('styles')
     <!-- Fullcalendar -->
-    <link href='{{asset('../vendor/fullcalendar/core/main.css')}}' rel='stylesheet' />
-    <link href='{{asset('../vendor/fullcalendar/daygrid/main.css')}}' rel='stylesheet' />
-    <link href='{{asset('../vendor/fullcalendar/timegrid/main.css')}}' rel='stylesheet' />
-    <link href='{{asset('../vendor/fullcalendar/list/main.css')}}' rel='stylesheet' />
-    <script src='{{asset('../vendor/fullcalendar/core/main.js')}}'></script>
-    <script src='{{asset('../vendor/fullcalendar/core/locales/fr.js')}}'></script>
-    <script src='{{asset('../vendor/fullcalendar/interaction/main.js')}}'></script>
-    <script src='{{asset('../vendor/fullcalendar/daygrid/main.js')}}'></script>
-    <script src='{{asset('../vendor/fullcalendar/timegrid/main.js')}}'></script>
-    <script src='{{asset('../vendor/fullcalendar/list/main.js')}}'></script>
+    <link href='{{ asset('/vendor/fullcalendar/core/main.css') }}' rel='stylesheet' />
+    <link href='{{ asset('/vendor/fullcalendar/daygrid/main.css') }}' rel='stylesheet' />
+    <link href='{{ asset('/vendor/fullcalendar/timegrid/main.css') }}' rel='stylesheet' />
+    <link href='{{ asset('/vendor/fullcalendar/list/main.css') }}' rel='stylesheet' />
+
+    <script src='{{ asset('/vendor/fullcalendar/core/main.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/core/locales/fr.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/interaction/main.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/daygrid/main.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/timegrid/main.js') }}'></script>
+    <script src='{{ asset('/vendor/fullcalendar/list/main.js') }}'></script>
 @stop
+
 @section('content')
-    {{-- Navbar --}}
-
-
     <div class="container-fluid">
 
         <div class="row">
@@ -167,24 +167,9 @@
 
 @stop
 
-@section('script')
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('../vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('./vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+@section('scripts')
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('../vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <!-- Page level plugin JavaScript-->
-    <script src="{{asset('../vendor/datatables/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('../vendor/datatables/dataTables.bootstrap4.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('../js/sb-admin.min.js')}}"></script>
-
-    <!-- Demo scripts for this page-->
     <!-- Fullcalendar setup script -->
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var Calendar = FullCalendar.Calendar;
