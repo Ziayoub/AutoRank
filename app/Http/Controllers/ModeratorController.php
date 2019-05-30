@@ -31,7 +31,7 @@ class ModeratorController extends Controller
      */
     public function updateAgency()
     {
-        // update the agency, and then redirect back to the profile.
+        // update the agency, and then redirect back to the agency.
     }
 
 
@@ -88,7 +88,7 @@ class ModeratorController extends Controller
      */
     public function createCar()
     {
-        // create the car, and then redirect back to the index.
+        // create the car, and then redirect back to the car.
     }
 
     /**
@@ -96,7 +96,7 @@ class ModeratorController extends Controller
      */
     public function updateCar()
     {
-        // update the car, and then redirect back to the index.
+        // update the car, and then redirect back to the car.
     }
 
     /**
