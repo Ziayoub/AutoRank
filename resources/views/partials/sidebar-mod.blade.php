@@ -14,7 +14,8 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('mod.showCars')}}">
             <i class="fas fa-fw fa-car"></i>
-            <span>Voitures</span></a>
+            <span>Voitures</span>
+        </a>
     </li>
 
 </ul>

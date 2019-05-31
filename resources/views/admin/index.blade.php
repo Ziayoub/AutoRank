@@ -11,11 +11,15 @@
     <script src="{{ asset('/vendor/fullcalendar/daygrid/main.js') }}"></script>
 @stop
 
+@section('sidebar')
+  @include('partials.sidebar-admin')
+@stop
+
 @section('content')
 <div class="container-fluid mt-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item active"><a href="./index.html">Tableau de bord</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Tableau de bord</a></li>
           </ol>
         </nav>
 
@@ -23,7 +27,7 @@
 
           <!-- Card 1 -->
           <div class="col-xl-3 col-md-6 mb-4">
-            <a href="moderators.html" class="card bg-dark h-100 py-2">
+            <a href="{{ route('admin.showModerators') }}" class="card bg-dark h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
@@ -40,7 +44,7 @@
 
           <!-- Card 2 -->
           <div class="col-xl-3 col-md-6 mb-4">
-            <a href="cars.html" class="card bg-dark h-100 py-2">
+            <a href="{{ route('admin.showCars') }}" class="card bg-dark h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
@@ -57,7 +61,7 @@
 
           <!-- Card 3 -->
           <div class="col-xl-3 col-md-6 mb-4">
-            <a href="agencies.html" class="card bg-dark h-100 py-2">
+            <a href="{{ route('admin.showAgencies') }}" class="card bg-dark h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
@@ -74,7 +78,7 @@
 
           <!-- Card 3 -->
           <div class="col-xl-3 col-md-6 mb-4">
-            <a href="cars.html" class="card bg-dark h-100 py-2">
+            <a href="{{ route('admin.showCars') }}" class="card bg-dark h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">

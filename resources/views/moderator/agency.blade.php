@@ -2,6 +2,10 @@
 
 @section('title', 'Agence')
 
+@section('sidebar')
+   @include('partials.sidebar-mod')
+@stop
+
 @section('content')
     <div class="container-fluid">
         <div class="row">

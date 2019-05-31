@@ -1,6 +1,11 @@
 @extends('layout-admin')
 
 @section('title', 'Moderateur')
+
+@section('sidebar')
+  @include('partials.sidebar-admin')
+@stop
+
 @section('content')
     <div id="content-wrapper">
 
@@ -8,7 +13,7 @@
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active"><a href="./moderators.html">Modérateurs</a></li>
+          <li class="breadcrumb-item active"><a href="{{ route('admin.showModerators') }}">Modérateurs</a></li>
         </ol>
       </nav>
 
@@ -34,7 +39,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">
-                      <a href="./moderator.html">10</a>
+                      <a href="{{ route('admin.showUpdateModerator', 10) }}">10</a>
                     </th>
                     <td>
                       <img src="http://placehold.it/400x400" alt="" class="rounded-circle" style="height:50px;">
@@ -50,7 +55,7 @@
                       </div>
                     </td>
                     <td>
-                      <a href="./agency.html">Agence Al Boughaz</a>
+                      <a href="{{ route('showUpdateAgency', 1)}}">Agence Al Boughaz</a>
                     </td>
                     <td>22-05-2019</td>
                   </tr>
@@ -61,22 +66,4 @@
       </div>
       </div>
       <!-- /.container-fluid -->
-  @stop
-@section('styles')
-  <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="{{asset('/vendor/datatables/jquery.dataTables.js')}}"></script>
-  <script src="{{asset('/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('/js/sb-admin.min.js')}}"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="{{asset('/js/demo/datatables-demo.js')}}"></script>
 @stop

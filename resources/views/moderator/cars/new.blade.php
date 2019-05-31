@@ -17,6 +17,10 @@
     <script src="{{asset('/vendor/fullcalendar/list/main.js') }}"></script>
 @stop
 
+@section('sidebar')
+   @include('partials.sidebar-mod')
+@stop
+
 @section('content')
     <div class="container-fluid">
 

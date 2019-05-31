@@ -2,6 +2,10 @@
 
 @section('title', 'Voitures')
 
+@section('sidebar')
+   @include('partials.sidebar-mod')
+@stop
+
 @section('content')
 
     <div class="container-fluid mt-3">

@@ -42,6 +42,7 @@ Route::get('/mod/cars/{id}','ModeratorController@showUpdateCar')->name('mod.show
 Route::post('/mod/cars/{id}','ModeratorController@updateCar')->name('mod.updateCar');
 Route::delete('/mod/cars/{id}','ModeratorController@deleteCar')->name('mod.deleteCar');
 
+
 /*  ---------------- Admin Routes ---------------- */
 
 Route::get('/admin','AdminController@index')->name('admin.index');
@@ -50,8 +51,8 @@ Route::get('/admin/profile','AdminController@showUpdateProfile')->name('admin.sh
 Route::post('/admin/profile','AdminController@updateProfile')->name('admin.updateProfile');
 
 Route::get('/admin/mods','AdminController@showModerators')->name('admin.showModerators');
-Route::get('/admin/mods/new','AdminController@showCreateProfile')->name('admin.showCreateProfile');
-Route::post('/admin/mods/new','AdminController@createModerators')->name('admin.createModerators');
+Route::get('/admin/mods/new','AdminController@showCreateModerator')->name('admin.showCreateModerator');
+Route::post('/admin/mods/new','AdminController@createModerator')->name('admin.createModerator');
 
 Route::get('/admin/mods/{id}','AdminController@showUpdateModerator')->name('admin.showUpdateModerator');
 Route::post('/admin/mods/{id}','AdminController@updateModerator')->name('admin.updateModerator');
@@ -69,6 +70,8 @@ Route::get('/admin/cars','AdminController@showCars')->name('admin.showCars');
 Route::get('/admin/cars/new','AdminController@showCreateCar')->name('admin.showCreateCar');
 Route::post('/admin/cars/new','AdminController@createCar')->name('admin.createCar');
 
-Route::get('/admin/cars/{id}','AdminController@showUpdatCar')->name('admin.showUpdatCar');
+Route::get('/admin/cars/{id}','AdminController@showUpdateCar')->name('admin.showUpdateCar');
 Route::post('/admin/cars/{id}','AdminController@updateCar')->name('admin.updateCar');
 Route::delete('/admin/cars/{id}','AdminController@deleteCar')->name('admin.deleteCar');
+
+
