@@ -12,7 +12,7 @@
         <div class="row h-100">
           <div class="col-lg-12">
             <h1 class="display-4 text-white mt-5 mb-2">
-              <img src="/assets/img/brand/white.png" alt="" style="height: 80px;">
+              <img src="{{asset('assets/img/brand/white.png')}}"  alt="" style="height: 80px;">
             </h1>
             <p class="lead mb-5 text-white-50 w-50">
               Autorank et un réseau d'agences de locations de voitures au Maroc, qui vous propose <br>plusieurs gamme de voitures.
