@@ -7,171 +7,176 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
-   public function index()
-   {
-       return view('admin.index');
-   }
+    /**
+     * GET /admin
+     */
+    public function index()
+    {
+        return view('admin.index');
+    }
 
-   public function showUpdateProfile()
-   {
-       return view('admin.profile');
-   }
 
-   /**
-    * POST /admin/profile
-    **/
-   public function updateProfile()
-   {
 
-   }
+    // ------------- Admin: profile - GET & POST ------------- //
 
-   //------------- Moderators : GET & POST $ DELETE ------------- //
+    /**
+     * GET /admin/profile
+     */
+    public function showUpdateProfile()
+    {
+        return view('admin.profile');
+    }
 
-   /**
-    * GET /admin/moderators
-    */
-   public function showModerators()
-   {
-       return view('admin.moderator.index');
-   }
+    /**
+     * POST /admin/profile
+     */
+    public function updateProfile()
+    {
+        // update the profile.
+    }
 
-   /**
-    * GET /admin/moderators/new
-    */
-   public function showCreateModerators()
-   {
-       return view('admin.moderator.edit');
-   }
 
-   /**
-    * GET /admin/moderators/{id}
-    */
-   public function showUpdateModerators()
-   {
-       return view('admin.moderator.edit');
-   }
 
-   /**
-    * POST /admin/moderator/new
-    */
-   public function CreateModerator()
-   {
+    // ------------- Admin: mods - GET ------------- //
 
-   }
+    /**
+     * GET /admin/mods
+     */
+    public function showModerators()
+    {
+        return view('admin.moderators.index');
+    }
 
-   /**
-    * POST /admin/moderator/{id}
-    */
-   public function updateModerator()
-   {
+    /**
+     * GET /admin/mods/new
+     */
+    public function showCreateModerator()
+    {
+        return view('admin.moderators.edit');
+    }
 
-   }
+    /**
+     * GET /admin/mods/{id}
+     */
+    public function showUpdateModerator()
+    {
+        return view('admin.moderators.edit');
+    }
 
-   /**
-    * DELETE /admin/moderator/new
-    */
-   public function deleteModerator()
-   {
+    // ------------- Admin: mods - POST & DELETE ------------- //
 
-   }
+    /**
+     * POST /admin/mods/new
+     */
+    public function createModerator()
+    { }
 
-   //-------------  Agencies ------------- //
+    /**
+     * POST /admin/mods/{id}
+     */
+    public function updateModerator()
+    { }
 
-   /**
-   *   GET /admin/agencies
-    **/
-   public function showAgencies()
-   {
-       return view('admin.agencies.index');
-   }
+    /**
+     * DELETE /admin/mods/new
+     */
+    public function deleteModerator()
+    { }
 
-   /**
-    *   GET /admin/agencies/new
-    **/
-   public function showCreateAgencies()
-   {
-       return view('admin.agencies.new');
-   }
 
-   /**
-    *   GET /admin/agencies/{id}
-    **/
-   public  function showUpdateAgency()
-   {
-       return view('admin.agencies.edit');
-   }
 
-   /**
-    *   POST /admin/agencies/{id}
-    **/
-   public  function updateAgency()
-   {
+    // ------------- Admin: agencies - GET ------------- //
 
-   }
-   /**
-    *   POST /admin/agencies/new
-    **/
-   public function createAgency()
-   {
+    /**
+     * GET /admin/agencies
+     */
+    public function showAgencies()
+    {
+        return view('admin.agencies.index');
+    }
 
-   }
+    /**
+     * GET /admin/agencies/new
+     */
+    public function showCreateAgency()
+    {
+        return view('admin.agencies.new');
+    }
 
-   /**
-   *   DELETE /admin/agencies/{id}
-    **/
-   public function deleteAgency()
-   {
+    /**
+     * GET /admin/agencies/{id}
+     */
+    public  function showUpdateAgency()
+    {
+        return view('admin.agencies.edit');
+    }
 
-   }
+    // ------------- Admin: agencies - POST & DELETE ------------- //
 
-   //-------------  Cars ------------- //
+    /**
+     * POST /admin/agencies/{id}
+     */
+    public  function updateAgency()
+    { }
 
-   /**
-   *   GET /admin/cars
-    **/
-   public function showCars()
-   {
-       return view('admin.cars.index');
-   }
+    /**
+     * POST /admin/agencies/new
+     */
+    public function createAgency()
+    { }
 
-   /**
-   *   GET /admin/cars/new
-    **/
-   public function showCreateCars()
-   {
-       return view('admin.cars.new');
-   }
+    /**
+     * DELETE /admin/agencies/{id}
+     */
+    public function deleteAgency()
+    { }
 
-   /**
-   *   GET /admin/cars/{id}
-    **/
-   public function showUpdateCars()
-   {
-       return view('admin.cars.edit');
-   }
 
-   /**
-   *   POST /admin/cars/new
-    **/
-   public function createCar()
-   {
 
-   }
+    //------------- Admin: cars - GET ------------- //
 
-   /**
-   *   POST /admin/cars/{id}
-    **/
-   public function updateCar()
-   {
+    /**
+     * GET /admin/cars
+     */
+    public function showCars()
+    {
+        return view('admin.cars.index');
+    }
 
-   }
+    /**
+     * GET /admin/cars/new
+     */
+    public function showCreateCar()
+    {
+        return view('admin.cars.new');
+    }
 
-   /**
-   *   DELETE /admin/cars/{id}
-    **/
-   public function deleteCar()
-   {
+    /**
+     * GET /admin/cars/{id}
+     */
+    public function showUpdateCar()
+    {
+        return view('admin.cars.edit');
+    }
 
-   }
+    //------------- Admin: cars - POST & DELETE ------------- //
+
+    /**
+     * POST /admin/cars/new
+     */
+    public function createCar()
+    { }
+
+    /**
+     * POST /admin/cars/{id}
+     **/
+    public function updateCar()
+    { }
+
+    /**
+     * DELETE /admin/cars/{id}
+     **/
+    public function deleteCar()
+    { }
+
 }
-

@@ -1,176 +1,73 @@
 @extends('layout-admin')
 
 @section('title', 'moderateurs')
+
+@section('sidebar')
+  @include('partials.sidebar-admin')
+@stop
+
 @section('content')
 
     <div id="content-wrapper">
 
       <div class="container-fluid mt-3">
 
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./moderators.html">Modérateurs</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Moderator Moderator</li>
-          </ol>
-        </nav>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active"><a href="{{ route('admin.showModerators') }}">Modérateurs</a></li>
+        </ol>
+      </nav>
 
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <!-- Details de l'agence -->
-            <div class="card">
-              <div class="card-body">
-                <form>
-                  <h4 class="mb-5">
-                    <i class="fas fa-user text-icon"></i>&nbsp;&nbsp; Moderator Moderator
-                  </h4>
-
-                  <div class="row">
-                    <div class="col-md-8">
-                      <h5><i class="fas fa-edit text-icon"></i>&nbsp;&nbsp;Données Personelles</h5>
-                      <hr class="mb-4 mt-2" />
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput">Nom</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom de moderateur"
-                              value="Admin">
-                          </div>
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput">Prenom</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                              placeholder="Prenom de moderateur" value="Admin">
-                          </div>
-                        </div>
+      <!-- Moderators DataTables -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="mb-5"><i class="fas fa-users text-icon"></i>&nbsp;&nbsp;Modérateurs</h5>
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Photo</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Validé</th>
+                    <th>Agence</th>
+                    <th>Date d'inscriptions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <a href="{{ route('admin.showUpdateModerator', 1) }}">10</a>
+                    </th>
+                    <td>
+                      <img src="http://placehold.it/400x400" alt="" class="rounded-circle" style="height:50px;">
+                    </td>
+                    <td>Ayoub</td>
+                    <td>Moderator</td>
+                    <td>ayoub.moderator@gmail.com</td>
+                    <td>0658932032</td>
+                    <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitches">
+                        <label class="custom-control-label" for="customSwitches"></label>
                       </div>
-
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput2">Email</label>
-                            <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email"
-                              value="admin@gmail.com">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput2">Telephone de
-                              contact</label>
-                            <input type="phone" class="form-control" id="formGroupExampleInput2"
-                              placeholder="Numero de telephone" value="">
-                          </div>
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput2">CIN</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2"
-                              placeholder="La carte d'identité nationale" value="">
-                          </div>
-                        </div>
-                      </div>
-
-                      <h5 class="mt-5"><i class="fas fa-key text-icon"></i>&nbsp;&nbsp;Changer le mot de passe</h5>
-                      <hr class="mb-4 mt-2" />
-
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput2">Mot de
-                              passe</label>
-                            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Mot de passe"
-                              value="K2454363">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                              for="formGroupExampleInput2">Confirmation
-                              de mot de passe</label>
-                            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="confirmation"
-                              value="K2454363">
-                          </div>
-                        </div>
-                      </div>
-
-                      <h5 class="mt-5"><i class="fas fa-building text-icon"></i>&nbsp;&nbsp;Agence associée</h5>
-                      <hr class="mb-4 mt-2" />
-
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label class="text-uppercase text-letter-spacing text-sm text-secondary" for="exampleFormControlSelect1">Nom</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                              <option>Agence 1</option>
-                              <option>Agence 2</option>
-                              <option>Agence 3</option>
-                              <option>Agence 4</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="col-md-4">
-                      <!-- <h5><i class="fas fa-key text-icon"></i>&nbsp;&nbsp;Photo de profil</h5> -->
-                      <div class="mb-5"></div>
-                      <div class="d-flex flex-column justify-content-center align-items-center">
-                        <img src="http://placehold.it/400x400" alt="" class="rounded-circle mb-4"
-                          style="width: 200px;height: 200px">
-                        <div class="custom-file w-50">
-                          <input type="file" class="custom-file-input" id="inputGroupFile02">
-                          <label class="custom-file-label" for="inputGroupFile02"><i
-                              class="fa fa-upload"></i>&nbsp;&nbsp;Remplacer</label>
-                        </div>
-                        <a class="text-xs text-danger mt-3" href="#"><i class="fa fa-trash"></i>&nbsp;&nbsp;Supprimer</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row mt-5">
-                    <div class="col-12">
-                      <button type="button" class="pull-right btn btn-primary">Enregistrer</button>
-                    </div>
-                  </div>
-
-                </form>
-              </div>
+                    </td>
+                    <td>
+                      <a href="{{ route('admin.showUpdateAgency', 1) }}">Agence Al Boughaz</a>
+                    </td>
+                    <td>22-05-2019</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <!-- ./ Details de l'agence -->
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <!-- Agency Photos -->
-
-            <!-- ./ Agency Photos -->
-          </div>
         </div>
-
+      </div>
       </div>
       <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-wrapper -->
 
-  @stop
-@section('styles')
-  <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="{{asset('/vendor/chart.js/Chart.min.js')}}"></script>
-  <script src="{{asset('/vendor/datatables/jquery.dataTables.js')}}"></script>
-  <script src="{{asset('/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('/js/sb-admin.min.js')}}"></script>
-
-  <!-- Demo scripts for this page-->
 @stop

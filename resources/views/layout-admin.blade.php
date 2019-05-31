@@ -27,7 +27,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('partials.sidebar')
+        @yield('sidebar')
 
         <div id="content-wrapper">
 
