@@ -4,11 +4,11 @@
 
 @section('styles')
     <!-- Fullcalendar -->
-    <link href='{{ asset('/vendor/fullcalendar/core/main.css') }}' rel='stylesheet' />
-    <link href='{{ asset('/vendor/fullcalendar/list/main.css') }}' rel='stylesheet' />
-    <script src='{{ asset('/vendor/fullcalendar/core/main.js') }}'></script>
-    <script src='{{ asset('/vendor/fullcalendar/core/locales/fr.js') }}'></script>
-    <script src='{{ asset('/vendor/fullcalendar/daygrid/main.js') }}'></script>
+    <link href="{{ asset('/vendor/fullcalendar/core/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('/vendor/fullcalendar/list/main.css') }}" rel='stylesheet' />
+    <script src="{{ asset('/vendor/fullcalendar/core/main.js') }}"></script>
+    <script src="{{ asset('/vendor/fullcalendar/core/locales/fr.js') }}"></script>
+    <script src="{{ asset('/vendor/fullcalendar/daygrid/main.js') }}"></script>
 @stop
 
 @section('content')
