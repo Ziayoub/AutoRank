@@ -21,4 +21,14 @@ class Agency extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function car()
+    {
+        return $this->belongsTo('App\Car');
+    }
+
+    public function attachment()
+    {
+        return $this->hasMany('App\Attachemnts');
+    }
 }
