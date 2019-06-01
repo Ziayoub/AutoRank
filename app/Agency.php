@@ -22,7 +22,7 @@ class Agency extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function car()
+    public function cars()
     {
         return $this->hasMany('App\Car');
     }
