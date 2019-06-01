@@ -88,14 +88,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         $agency = Agency::create([
-            'name' => $data['agencyName'],
-            'phone' => $data['agencyPhone'],
-            'address' => $data['agencyAddress'],
-            'city' => $data['agencyCity']
-        ]);
-
-        $user = new User([
+        $user = User::create([
             'first_name' => $data['firstName'],
             'last_name' => $data['lastName'],
             'email' => $data['email'],
@@ -105,8 +98,15 @@ class RegisterController extends Controller
             'role' => 'moderator',
         ]);
 
-        $user->agency()->associate($agency);
-        $user->save();
+        $agency = new Agency([
+            'name' => $data['agencyName'],
+            'phone' => $data['agencyPhone'],
+            'address' => $data['agencyAddress'],
+            'city' => $data['agencyCity']
+        ]);
+
+        $agency->moderator()->associate($user);
+        $agency->save();
 
         return $user;
     }

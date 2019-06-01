@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function agency()
     {
-        return $this->hasOne('App\Agency');
+        return $this->belongsTo('App\Agency');
     }
 
 }
