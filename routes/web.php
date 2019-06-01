@@ -66,12 +66,17 @@ Route::get('/admin/agencies/{id}','AdminController@showUpdateAgency')->name('adm
 Route::post('/admin/agencies/{id}','AdminController@updateAgency')->name('admin.updateAgency');
 Route::delete('/admin/agencies/{id}','AdminController@deleteAgency')->name('admin.deleteAgency');
 
-Route::get('/admin/cars','AdminController@showCars')->name('admin.showCars');
-Route::get('/admin/cars/new','AdminController@showCreateCar')->name('admin.showCreateCar');
-Route::post('/admin/cars/new','AdminController@createCar')->name('admin.createCar');
 
-Route::get('/admin/cars/{id}','AdminController@showUpdateCar')->name('admin.showUpdateCar');
-Route::post('/admin/cars/{id}','AdminController@updateCar')->name('admin.updateCar');
-Route::delete('/admin/cars/{id}','AdminController@deleteCar')->name('admin.deleteCar');
+
+
+/*  ---------------- Car Routes: for Admin & Mod ---------------- */
+
+Route::get('/admin/cars','CarController@showCars')->name('admin.showCars');
+Route::get('/admin/cars/new','CarController@showCreateCar')->name('admin.showCreateCar');
+Route::post('/admin/cars/new','CarController@createCar')->name('admin.createCar');
+
+Route::get('/admin/cars/{id}','CarController@showUpdateCar')->name('admin.showUpdateCar');
+Route::post('/admin/cars/{id}','CarController@updateCar')->name('admin.updateCar');
+Route::delete('/admin/cars/{id}','CarController@deleteCar')->name('admin.deleteCar');
 
 
