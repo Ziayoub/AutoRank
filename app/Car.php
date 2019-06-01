@@ -34,7 +34,7 @@ class Car extends Model
         return $this->hasMany('App\Attachment');
     }
 
-    public function unavailability()
+    public function unavailabilities()
     {
         return $this->hasMany('App\Unavailability');
     }
