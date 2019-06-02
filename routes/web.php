@@ -58,13 +58,19 @@ Route::get('/admin/mods/{id}','AdminController@showUpdateModerator')->name('admi
 Route::post('/admin/mods/{id}','AdminController@updateModerator')->name('admin.updateModerator');
 Route::delete('/admin/mods/{id}','AdminController@deleteModerator')->name('admin.deleteModerator');
 
-Route::get('/admin/agencies','AdminController@showAgencies')->name('admin.showAgencies');
-Route::get('/admin/agencies/new','AdminController@showCreateAgency')->name('admin.showCreateAgency');
-Route::post('/admin/agencies/new','AdminController@createAgency')->name('admin.createAgency');
 
-Route::get('/admin/agencies/{id}','AdminController@showUpdateAgency')->name('admin.showUpdateAgency');
-Route::post('/admin/agencies/{id}','AdminController@updateAgency')->name('admin.updateAgency');
-Route::delete('/admin/agencies/{id}','AdminController@deleteAgency')->name('admin.deleteAgency');
+
+
+/*  ---------------- Agency Routes: for Admin & Mod ---------------- */
+
+Route::get('/admin/agencies/{id}','AgencyController@showUpdateAgency')->name('admin.showUpdateAgency');
+Route::post('/admin/agencies/{id}','AgencyController@updateAgency')->name('admin.updateAgency');
+
+/*  ---------------- Agency Routes: for Admin ---------------- */
+Route::get('/admin/agencies','AgencyController@showAgencies')->name('admin.showAgencies');
+Route::post('/admin/agencies/new','AgencyController@createAgency')->name('admin.createAgency');
+Route::get('/admin/agencies/new','AgencyController@showCreateAgency')->name('admin.showCreateAgency');
+Route::delete('/admin/agencies/{id}','AgencyController@deleteAgency')->name('admin.deleteAgency');
 
 
 
