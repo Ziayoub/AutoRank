@@ -14,14 +14,7 @@ class AgencyController extends Controller
      */
     public function showAgencies()
     {
-        if(\Auth::user()->isAdmin())
-        {
-            return view('admin.agencies.index');
-        }
-        else
-        {
-
-        }
+        return view('admin.agencies.index');
     }
 
     /**
@@ -29,14 +22,7 @@ class AgencyController extends Controller
      */
     public function showCreateAgency()
     {
-        if(\Auth::user()->isAdmin())
-        {
-            return view('admin.agencies.new');
-        }
-        else
-        {
-            
-        }
+        return view('admin.agencies.new');
     }
 
     /**
