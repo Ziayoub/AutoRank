@@ -12,7 +12,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        if(\Auth::user()->isAdmin())
+        {
+            return view('admin.index');
+        }
+        else
+        {
+            return view('moderator.index');
+        }
     }
 
 
@@ -24,7 +31,15 @@ class AdminController extends Controller
      */
     public function showUpdateProfile()
     {
-        return view('admin.profile');
+        if(\Auth::user()->isAdmin())
+        {
+            return view('admin.profile');
+        }
+        else
+        {
+            return view('moderator.profile');
+        }
+
     }
 
     /**
@@ -32,7 +47,14 @@ class AdminController extends Controller
      */
     public function updateProfile()
     {
-        // update the profile.
+        if(\Auth::user()->isAdmin())
+        {
+            // update Admin  profile.
+        }
+        else
+        {
+            // update Moderator profile.
+        }
     }
 
 
