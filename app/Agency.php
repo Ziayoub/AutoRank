@@ -19,7 +19,7 @@ class Agency extends Model
 
     public function moderator()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function cars()
