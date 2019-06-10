@@ -38,11 +38,6 @@ class User extends Authenticatable /*implements MustVerifyEmail*/
         'email_verified_at' => 'datetime',
     ];
 
-    public function agency()
-    {
-        return $this->belongsTo('App\Agency');
-    }
-
     public function isAdmin()
     {
         return $this->role == 'admin';

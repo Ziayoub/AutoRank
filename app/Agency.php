@@ -14,7 +14,7 @@ class Agency extends Model
     protected $fillable = [
         'name', 'phone', 'address', 'city',
         'facebook', 'whatsapp', 'instagram',
-        'agency_id', 'model_id'
+        'user_id', 'model_id'
     ];
 
     public function moderator()
