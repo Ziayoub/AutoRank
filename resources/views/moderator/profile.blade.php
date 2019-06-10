@@ -98,8 +98,7 @@
                                     <!-- <h5><i class="fas fa-key text-icon"></i>&nbsp;&nbsp;Photo de profil</h5> -->
                                     <div class="mb-5"></div>
                                     <div class="d-flex flex-column justify-content-center align-items-center">
-                                        <img src="http://placehold.it/400x400" alt="" class="rounded-circle mb-4"
-                                            style="width: 200px;height: 200px">
+                                        <img src="{{ asset('/storage/' . auth()->user()->photo) }}" alt="" class="rounded-circle mb-4" style="width: 200px;height: 200px">
                                         <div class="custom-file w-50">
                                             <input type="file" class="custom-file-input" id="inputGroupFile02">
                                             <label class="custom-file-label" for="inputGroupFile02"><i

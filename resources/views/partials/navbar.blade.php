@@ -27,15 +27,15 @@
           </li>
 
 
-          @if ($authenticatedUser)
+          @if (auth()->user())
              <li class="nav-item dropdown ml-4">
                 <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img class="rounded-circle" style="width:30px;height:30px"
-                    src="https://argon-dashboard-laravel.creative-tim.com/argon/img/theme/team-4-800x800.jpg">
+                    src="{{ asset('/storage/' . auth()->user()->photo) }}">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                  <a class="dropdown-item text-uppercase text-letter-spacing text-sm" href="portfolio-1-col.html">Tableau de bord</a>
-                  <a class="dropdown-item text-uppercase text-letter-spacing text-sm" href="portfolio-2-col.html">Profile</a>
+                  <a class="dropdown-item text-uppercase text-letter-spacing text-sm" href="{{ route('admin.index') }}">Tableau de bord</a>
+                  <a class="dropdown-item text-uppercase text-letter-spacing text-sm" href="{{ route('admin.showUpdateProfile') }}">Profile</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item text-uppercase text-letter-spacing text-sm" href="{{ route('logout') }}">Se Déconnecter</a>
                 </div>

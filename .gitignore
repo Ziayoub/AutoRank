@@ -3,6 +3,10 @@ node_modules
 /public/storage
 /public/vendor
 /storage/*.key
+
+/storage/app/public/profile/*
+!storage/app/public/profile/default.png
+
 /vendor
 .env
 .phpunit.result.cache
@@ -14,3 +18,4 @@ yarn-error.log
 .DS_Store
 _ide_helper.php
 .phpstorm.meta.php
+

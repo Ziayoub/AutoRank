@@ -7,9 +7,9 @@
     <ul class="navbar-nav ml-auto d-flex align-items-center">
         <li class="nav-item dropdown ml-4">
             <a class="nav-link d-flex align-items-center" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-3">Admin Admin</span>
+                <span class="mr-3">{{ auth()->user()->first_name . ' ' .  auth()->user()->last_name }}</span>
                 <img class="rounded-circle" style="width:30px;height:30px"
-                     src="https://argon-dashboard-laravel.creative-tim.com/argon/img/theme/team-4-800x800.jpg">
+                     src="{{ asset('/storage/' . auth()->user()->photo) }}">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
                 <a class="dropdown-item" href="{{route('admin.index')}}">
@@ -19,7 +19,7 @@
                     <i class="fas fa-user"></i>&nbsp;&nbsp;Compte
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Se Déconnecter</a>
+                <a class="dropdown-item" href="{{ route('logout') }}">Se Déconnecter</a>
             </div>
 
         </li>
