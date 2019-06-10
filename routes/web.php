@@ -47,9 +47,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     /*  ---------------- Agency Routes: for Admin & Mod ---------------- */
-    Route::get('/admin/agencies/{id}', 'AgencyController@showUpdateAgency')->name('admin.showUpdateAgency');
-    Route::post('/admin/agencies/{id}', 'AgencyController@updateAgency')->name('admin.updateAgency');
-
+    Route::group(['middleware' => ['own']], function () {
+        Route::get('/admin/agencies/{id}', 'AgencyController@showUpdateAgency')->name('admin.showUpdateAgency');
+        Route::post('/admin/agencies/{id}', 'AgencyController@updateAgency')->name('admin.updateAgency');
+    });
 
     /*  ---------------- Car Routes: for Admin & Mod ---------------- */
     Route::get('/admin/cars', 'CarController@showCars')->name('admin.showCars');
