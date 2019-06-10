@@ -43,7 +43,6 @@ class User extends Authenticatable /*implements MustVerifyEmail*/
         return $this->belongsTo('App\Agency');
     }
 
-
     public function isAdmin()
     {
         return $this->role == 'admin';
