@@ -47,4 +47,10 @@ class User extends Authenticatable /*implements MustVerifyEmail*/
     {
         return $this->role == 'moderator';
     }
+
+
+    public function isApproved()
+    {
+        return $this->approved == '1';
+    }
 }
