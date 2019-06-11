@@ -8,7 +8,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 // before the admin validates it.
 Route::get('/pending', function () {
     return view('pending');
-});
+})->name('pending');
 
 
 /*  ---------------- Pages Routes ---------------- */
@@ -21,7 +21,7 @@ Route::get('/cars','PagesController@cars')->name('cars');
 Route::get('/cars/{id}','PagesController@car')->name('car');;
 
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','approved']], function () {
 
     Route::group(['middleware' => ['admin']], function () {
         /*  ---------------- Moderator Routes: admin only ---------------- */
