@@ -145,6 +145,7 @@ return [
 
     'attributes' => [
         'name'                  => 'nom',
+        'agency.name'           => 'nom',
         'username'              => "nom d'utilisateur",
         'email'                 => 'adresse email',
         'first_name'            => 'prénom',
@@ -173,5 +174,6 @@ return [
         'time'                  => 'heure',
         'available'             => 'disponible',
         'size'                  => 'taille',
+        'agency'                => 'agence',
     ],
 ];

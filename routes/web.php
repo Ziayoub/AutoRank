@@ -47,14 +47,14 @@ Route::group(['middleware' => ['auth','approved']], function () {
 
 
     /*  ---------------- Agency Routes: for Admin & Mod ---------------- */
-    Route::group(['middleware' => ['own']], function () {
-        Route::get('/admin/agencies/{id}', 'AgencyController@showUpdateAgency')->name('admin.showUpdateAgency');
-        Route::post('/admin/agencies/{id}', 'AgencyController@updateAgency')->name('admin.updateAgency');
 
-        Route::get('/admin/cars/{id}', 'CarController@showUpdateCar')->name('admin.showUpdateCar');
-        Route::post('/admin/cars/{id}', 'CarController@updateCar')->name('admin.updateCar');
-        Route::delete('/admin/cars/{id}', 'CarController@deleteCar')->name('admin.deleteCar');
-    });
+    Route::get('/admin/agencies/{id}', 'AgencyController@showUpdateAgency')->name('admin.showUpdateAgency');
+    Route::post('/admin/agencies/{id}', 'AgencyController@updateAgency')->name('admin.updateAgency');
+
+    Route::get('/admin/cars/{id}', 'CarController@showUpdateCar')->name('admin.showUpdateCar');
+    Route::post('/admin/cars/{id}', 'CarController@updateCar')->name('admin.updateCar');
+    Route::delete('/admin/cars/{id}', 'CarController@deleteCar')->name('admin.deleteCar');
+
 
     /*  ---------------- Car Routes: for Admin & Mod ---------------- */
     Route::get('/admin/cars', 'CarController@showCars')->name('admin.showCars');

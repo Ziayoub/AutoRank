@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Agency;
+use Auth;
 use Illuminate\Http\Request;
+
+
 
 class AgencyController extends Controller
 {
@@ -44,8 +48,37 @@ class AgencyController extends Controller
     /**
      * POST /admin/agencies/new
      */
-    public function createAgency()
-    { }
+    public function createAgency(Request $request)
+    {
+        $validatedData = $request->validate([
+            'AgencyName' => 'required|string|max:255',
+            'AgencyAddress' => 'required|string|max:255',
+            'AgencyCity' => 'required|max:255|filled',
+            'AgencyPhone' => 'required|numeric',
+            'facebook' => 'string',
+            'whatsapp' => 'numeric|max:255',
+            'instagram' => 'string|max:255',
+
+        ]);
+
+
+        $agency = new Agency([
+            "name" => $validatedData["AgencyName"],
+            "address" => $validatedData["AgencyAddress"],
+            "city" => $validatedData["AgencyCity"],
+            "phone" => $validatedData["AgencyPhone"],
+            "facebook" => $validatedData["facebook"],
+            "whatsapp" => $validatedData["whatsapp"],
+            "instagram" => $validatedData["instagram"],
+        ]);
+
+        $agency->moderator()->associate(Auth::user());
+        $agency->save();
+
+
+        return redirect()->back();
+
+    }
 
     /**
      * DELETE /admin/agencies/{id}
