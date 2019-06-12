@@ -31,4 +31,6 @@ class Agency extends Model
     {
         return $this->hasMany('App\Attachment');
     }
+
+
 }
