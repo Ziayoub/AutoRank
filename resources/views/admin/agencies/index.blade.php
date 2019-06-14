@@ -38,30 +38,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">
-                        <a href="{{ route('admin.showUpdateAgency', 2) }}">2</a>
-                        </th>
-                        <td>
-                        <img src="http://placehold.it/400x400" alt="" style="height:50px;">
-                        </td>
-                        <td>
-                        <a href="{{ route('admin.showUpdateAgency', 2) }}">Agence Al Boughaz</a>
-                        </td>
-                        <td>0534324244</td>
-                        <td>Rue 4 Avenue Moulay Ismail 9000</td>
-                        <td>Tanger</td>
-                        <td>01-03-2019</td>
-                        <td>
-                        <a href="{{ route('admin.showUpdateModerator', 1) }}">Ayoub Modérateur</a>
-                        </td>
-                        <td style="min-width: 160px">
-                        <div>
-                            <a href="{{ route('admin.showUpdateAgency', 2) }}" class="btn btn-sm btn-secondary">Modifier</a>
-                            <a href="#" class="btn btn-sm btn-danger">Supprimer</a>
-                        </div>
-                        </td>
-                    </tr>
+
+                        <?php $agencies = App\Agency::all() ?>
+                        @foreach($agencies as $agency)
+                            <tr>
+                                <th scope="row">
+                                <a href="{{ route('admin.showUpdateAgency', 1 ) }}">{{$agency->id}}</a>
+                                </th>
+                                <td>
+                                <img src="http://placehold.it/400x400" alt="" style="height:50px;">
+                                </td>
+                                <td>
+                                <a href="{{ route('admin.showUpdateAgency', 2 ) }}">{{$agency->name}}</a>
+                                </td>
+                                <td>{{ $agency->phone }}</td>
+                                <td>{{ $agency->address }}</td>
+                                <td>{{ $agency->city }}</td>
+                                <td>{{ $agency->created_at }}</td>
+                                <td>
+                                <a href="{{ route('admin.showUpdateModerator', 1) }}">Ayoub Modérateur</a>
+                                </td>
+                                <td style="min-width: 160px">
+                                <div>
+                                    <a href="{{ route('admin.showUpdateAgency', 2) }}" class="btn btn-sm btn-secondary">Modifier</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Supprimer</a>
+                                </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 </div>

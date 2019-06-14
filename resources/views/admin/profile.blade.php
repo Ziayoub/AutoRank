@@ -17,7 +17,7 @@
               <div class="card-body">
                 <form>
                   <h4 class="mb-5">
-                    <i class="fas fa-user text-icon"></i>&nbsp;&nbsp; Admin Admin
+                    <i class="fas fa-user text-icon"></i>&nbsp;&nbsp; {{ auth()->user()->first_name .' '. auth()->user()->lastt_name  }}
                   </h4>
 
                   <div class="row">
@@ -28,13 +28,13 @@
                         <div class="row">
                           <div class="col-6">
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary" for="formGroupExampleInput">Nom</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom de moderateur" value="Admin">
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom de moderateur" value="{{ auth()->user()->last_name }}">
                           </div>
                           <div class="col-6">
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary"
                               for="formGroupExampleInput">Prenom</label>
                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Prenom de moderateur"
-                              value="Admin">
+                              value="{{ auth()->user()->first_name }}">
                           </div>
                         </div>
                       </div>
@@ -44,7 +44,7 @@
                           <div class="col-6">
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary"
                               for="formGroupExampleInput2">Email</label>
-                            <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email" value="admin@gmail.com">
+                            <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email" value="{{ auth()->user()->email }}">
                           </div>
                         </div>
                       </div>
@@ -54,7 +54,7 @@
                           <div class="col-6">
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary" for="formGroupExampleInput2">Telephone de
                               contact</label>
-                            <input type="phone" class="form-control" id="formGroupExampleInput2" placeholder="Numero de telephone" value="">
+                            <input type="phone" class="form-control" id="formGroupExampleInput2" placeholder="Numero de telephone" value="{{ auth()->user()->phone}}">
                           </div>
                           <div class="col-6">
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary" for="formGroupExampleInput2">CIN</label>
@@ -73,7 +73,7 @@
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary" for="formGroupExampleInput2">Mot de
                               passe</label>
                             <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Mot de passe"
-                              value="K2454363">
+                              value="{{ auth()->user()->password }}">
                           </div>
                         </div>
                       </div>
@@ -83,7 +83,7 @@
                             <label class="text-uppercase text-letter-spacing text-sm text-secondary" for="formGroupExampleInput2">Confirmation
                               de mot de passe</label>
                             <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="confirmation"
-                              value="K2454363">
+                              value="{{ auth()->user()->password }}">
                           </div>
                         </div>
                       </div>
