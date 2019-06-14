@@ -17,7 +17,7 @@
                     <!-- Details de l'agence -->
                         <div class="card my-3">
                             <div class="card-body">
-                                <h4 class="mb-5"><i class="fas fa-hotel text-icon"></i>&nbsp;&nbsp;Agence Salam</h4>
+                                <h4 class="mb-5"><i class="fas fa-hotel text-icon"></i>&nbsp;&nbsp;Ajouter une agence</h4>
                                 <h5><i class="fas fa-info text-icon"></i>&nbsp;&nbsp;Details de l'agence</h5>
                                 <hr class="mb-4">
                                 <div class="row">

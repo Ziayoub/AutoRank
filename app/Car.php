@@ -24,9 +24,9 @@ class Car extends Model
         return $this->belongsTo('App\Agency');
     }
 
-    public function  carModel()
+    public function carModel()
     {
-        return $this->hasOne('App\CarModel');
+        return $this->belongsTo('App\CarModel');
     }
 
     public function attachments()

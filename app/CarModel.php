@@ -10,8 +10,4 @@ class CarModel extends Model
     {
         return $this->belongsTo('App\Brand');
     }
-    public function car()
-    {
-        return $this->hasOne('App\Car');
-    }
 }
