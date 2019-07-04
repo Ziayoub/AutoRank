@@ -56,7 +56,7 @@
             </div>
         </div>
         <br>
-        <h4 class="mb-4 font-weight-light">Détails de la voiture</h4>
+        <h4 class="mb-4 font-weight-light">Détails de la voiture : <b>Renault Clio 4 </b></h4>
 
         <div class="row">
             <div class="col-md-4">
@@ -83,6 +83,10 @@
                 <div class="mb-3">
                     <div class="text-uppercase text-letter-spacing text-sm text-muted">Kilométrage</div>
                     <div class="font-weight-bold">2000 <span class="font-weight-light">Km</span></div>
+                </div>
+                <div class="mb-3">
+                    <div class="text-uppercase text-letter-spacing text-sm text-muted">Couleur</div>
+                    <div class="font-weight-bold">Blanche </div>
                 </div>
             </div>
         </div>
@@ -122,13 +126,11 @@
 
 @stop
 
-
-<!-- Scripts-->
 @section('scripts')
-    <!-- Fullcalendar script -->
     <script>
+
         document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
+            var calendarEl = document.getElementById('calendar-index');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['dayGrid'],
@@ -138,26 +140,49 @@
                 locale: 'fr',
                 events: [
                     {
-                        title: 'Réservé',
-                        backgroundColor: 'red',
-                        rendering: 'background',
+                        title: 'Mercedes AMG — Agence Al Boughaz',
+                        start: '2019-05-25',
+                        backgroundColor: 'blue',
+                    },
+                    {
+                        title: 'Renault Clio 4 Rouge — Agence Al Boughaz',
                         start: '2019-05-19',
                         end: '2019-05-30'
                     },
                     {
                         groupId: 1,
-                        title: 'Réservé',
-                        backgroundColor: 'red',
-                        rendering: 'background',
-                        start: '2019-05-10'
+                        title: 'Ford Fiesta — HMZ CAr',
+                        start: '2019-04-09',
+                        backgroundColor: '#28a745',
                     },
                     {
                         groupId: 1,
-                        title: 'Réservé',
-                        backgroundColor: 'red',
-                        rendering: 'background',
-                        start: '2019-06-01',
-                        end: '2019-06-05'
+                        title: 'Ford Fiesta — HMZ CAr',
+                        start: '2019-04-16',
+                        backgroundColor: '#28a745',
+                    },
+                    {
+                        title: 'Ford Fiesta — HMZ CAr',
+                        start: '2019-04-11',
+                        end: '2019-04-13',
+                        backgroundColor: '#28a745',
+                    },
+                    {
+                        title: 'Renault Clio 4 Blanche — HMZ CAr',
+                        start: '2019-05-01',
+                        end: '2019-05-05',
+                        backgroundColor: '#28a745',
+                    },
+                    {
+                        title: 'Renault Clio 4 Blanche — HMZ CAr',
+                        start: '2019-05-14',
+                        end: '2019-05-20',
+                        backgroundColor: '#28a745',
+                    },
+                    {
+                        title: 'Click for Google',
+                        url: 'http://google.com/',
+                        start: '2019-04-28'
                     }
                 ]
             });

@@ -13,7 +13,7 @@
 
         <div class="row h-100 justify-content-between align-items-center">
             <div>
-                <h1 class="display-4 text-white mt-5 mb-2">Agence Al Boughaz</h1>
+                <h1 class="display-4 text-white mt-5 mb-2">Agence MedinaCar</h1>
 
                 <div class="lead mb-5 text-white-50">
                     <i class="fa fa-map-marker-alt"></i>
@@ -24,11 +24,11 @@
             <div class="lead mb-5 text-white-50 mt-4">
                 <div>
                     <i class="fab text-white fa-facebook"></i>&nbsp;&nbsp;
-                    <a class="text-white" href="facebook.com/agency">facebook.com/agency</a>
+                    <a class="text-white" href="facebook.com/agency">facebook.com/medinacar</a>
                 </div>
                 <div>
                     <i class="fab text-white fa-instagram"></i>&nbsp;&nbsp;
-                    <a class="text-white" href="instagram.com/agency">instagram.com/agency</a>
+                    <a class="text-white" href="instagram.com/agency">instagram.com/medinacar</a>
                 </div>
                 <div>
                     <i class="fab fa-whatsapp text-white"></i>&nbsp;&nbsp;
@@ -49,7 +49,7 @@
 
     <div class="space-50">
         <h2>Voiture offertes</h2>
-        <p class="text-secondary">20 voitures, 3 marques.</p>
+        <p class="text-secondary">4 voitures, 3 marques.</p>
     </div>
     <br>
     <!-- Marketing Icons Section -->
@@ -63,8 +63,8 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <div class="d-flex justify-content-between">
-                            <a href="/car">Fiat Panda</a>
-                            <h5 class="text-right">200 <small>DH/Jour</small></h5>
+                            <a href="/car">Renault Clio 4 </a>
+                            <h5 class="text-right">350 <small>DH/Jour</small></h5>
                         </div>
                     </h4>
                     <p class="card-text">
@@ -76,6 +76,37 @@
                         <div class="d-flex align-items-center">
                             <i style="width:22px" class="fa text-icon fa-gas-pump"></i>
                             <span>Diesel</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i style="width:22px" class="fa text-icon fa-cog"></i>
+                            <span>Vitesse Manuelle</span>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <a href="/agency">
+                    <img class="card-img-top" src="http://placehold.it/500x400" alt="">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <div class="d-flex justify-content-between">
+                            <a href="/car">Renault Clio 4</a>
+                            <h5 class="text-right">300 <small>DH/Jour</small></h5>
+                        </div>
+                    </h4>
+                    <p class="card-text">
+                    <div class="mb-2">
+                        <div class="d-flex align-items-center">
+                            <i style="width:22px" class="fa text-icon fa-car"></i>
+                            <span>5 Places</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i style="width:22px" class="fa text-icon fa-gas-pump"></i>
+                            <span>Essence</span>
                         </div>
                         <div class="d-flex align-items-center">
                             <i style="width:22px" class="fa text-icon fa-cog"></i>
@@ -94,7 +125,7 @@
                 <div class="card-body">
                     <h4 class="card-title">
                         <div class="d-flex justify-content-between">
-                            <a href="/car">Fiat Panda</a>
+                            <a href="/car">Peugeot 308 </a>
                             <h5 class="text-right">200 <small>DH/Jour</small></h5>
                         </div>
                     </h4>
@@ -117,68 +148,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <a href="/agency">
-                    <img class="card-img-top" src="http://placehold.it/500x400" alt="">
-                </a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <div class="d-flex justify-content-between">
-                            <a href="/car">Fiat Panda</a>
-                            <h5 class="text-right">200 <small>DH/Jour</small></h5>
-                        </div>
-                    </h4>
-                    <p class="card-text">
-                    <div class="mb-2">
-                        <div class="d-flex align-items-center">
-                            <i style="width:22px" class="fa text-icon fa-car"></i>
-                            <span>5 Places</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i style="width:22px" class="fa text-icon fa-gas-pump"></i>
-                            <span>Diesel</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i style="width:22px" class="fa text-icon fa-cog"></i>
-                            <span>Vitesse automatique</span>
-                        </div>
-                    </div>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <a href="/agency">
-                    <img class="card-img-top" src="http://placehold.it/500x400" alt="">
-                </a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <div class="d-flex justify-content-between">
-                            <a href="/car">Fiat Panda</a>
-                            <h5 class="text-right">200 <small>DH/Jour</small></h5>
-                        </div>
-                    </h4>
-                    <p class="card-text">
-                    <div class="mb-2">
-                        <div class="d-flex align-items-center">
-                            <i style="width:22px" class="fa text-icon fa-car"></i>
-                            <span>5 Places</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i style="width:22px" class="fa text-icon fa-gas-pump"></i>
-                            <span>Diesel</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i style="width:22px" class="fa text-icon fa-cog"></i>
-                            <span>Vitesse automatique</span>
-                        </div>
-                    </div>
-                    </p>
-                </div>
-            </div>
-        </div>
+
 
 
     </div>

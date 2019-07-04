@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class CarController extends Controller
 {
@@ -58,7 +59,10 @@ class CarController extends Controller
      * POST /admin/cars/new
      */
     public function createCar()
-    { }
+    {
+        $name = Input::get('fuel');
+        dd($name);
+    }
 
     /**
      * POST /admin/cars/{id}
@@ -71,5 +75,10 @@ class CarController extends Controller
      **/
     public function deleteCar()
     { }
+
+
+
+
+
 
 }

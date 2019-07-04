@@ -24,18 +24,11 @@
     <div id="content-wrapper">
 
       <div class="container-fluid mt-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./cars.html">Voitures</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Ford Fiesta 2018</li>
-          </ol>
-        </nav>
-
-
         <div class="row">
           <div class="col-12">
 
             <!-- Details de la voiture -->
+            <form>
             <div class="card">
               <div class="card-body">
                 <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;Ford Fiesta 2018</h4>
@@ -44,113 +37,114 @@
                 <hr class="mb-4">
                 <div class="row">
                   <div class="col-12">
-                    <form>
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label for="brand">Marque</label>
-                            <select class="form-control" id="brand">
-                              <option>Choise</option>
-                              <option selected>Ford</option>
-                              <option>BMW</option>
-                              <option>Mercedes</option>
-                              <option>Seat</option>
-                            </select>
+                    <form method="post" action="{{route('admin.showCreateCar')}}">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-6">
+                                <label for="brand">Marque</label>
+                                <select class="form-control" id="brand">
+                                  <option selected>Choise</option>
+                                  <option >Ford</option>
+                                  <option>BMW</option>
+                                  <option>Mercedes</option>
+                                  <option>Seat</option>
+                                </select>
+                              </div>
+                              <div class="col-6">
+                                <label for="model">Modèle</label>
+                                <select class="form-control" id="model">
+                                  <option selected>Choise</optionselected>
+                                  <option >Fiesta</option>
+                                  <option>Focus</option>
+                                </select>
+                              </div>
+                            </div>
                           </div>
-                          <div class="col-6">
-                            <label for="model">Modèle</label>
-                            <select class="form-control" id="model">
-                              <option>Choise</option>
-                              <option selected>Fiesta</option>
-                              <option>Focus</option>
-                            </select>
+
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-6">
+                                <label for="production_year">Année de production</label>
+                                <select class="form-control" id="production_year">
+                                  <option selected>Choise</option>
+                                  <option >2018</option>
+                                  <option>2017</option>
+                                </select>
+                              </div>
+                              <div class="col-6">
+                                <label for="seats">Nombre de place</label>
+                                <input type="number" class="form-control" id="seats" value="" placeholder="Nombre de places">
+                              </div>
+                            </div>
                           </div>
+
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label for="price">Prix par jour (DH)</label>
+                                <input type="number" class="form-control" id="price" placeholder="Prix par jour" value="">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label>Carburant</label><br>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="fuel" id="diesel" value="diesel" >
+                              <label for="diesel" class="form-check-label">
+                                Diesel
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="fuel" id="gasoline" value="gasoline">
+                              <label for="gasoline" class="form-check-label">
+                                Essence
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label>Transmission</label><br>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="speed" id="manual" value="manual" >
+                              <label class="form-check-label" for="manual">
+                                Manuelle
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="speed" id="automatic" value="automatic">
+                              <label class="form-check-label" for="automatic">
+                                Automatique
+                              </label>
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+
+                    <br>
+                    <h5><i class="fas fa-photo text-icon"></i>&nbsp;&nbsp;Photos</h5>
+                    <hr class="mb-4">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="file">
+                          <input type="file" class="custom-file-input" id="inputGroupFile04">
+                          <label class="custom-file-label" for="inputGroupFile04"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;Ajouter
+                            des photos</label>
                         </div>
                       </div>
+                    </div>
 
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-6">
-                            <label for="production_year">Année de production</label>
-                            <select class="form-control" id="production_year">
-                              <option>2019</option>
-                              <option selected>2018</option>
-                              <option>2017</option>
-                            </select>
-                          </div>
-                          <div class="col-6">
-                            <label for="seats')}}")}}">Nombre de place</label>
-                            <input type="number" class="form-control" id="seats')}}")}}" value="5" placeholder="Nombre de places')}}")}}">
-                          </div>
-                        </div>
+
+                    <div class="row mt-5">
+                      <div class="col-12">
+                        <button type="button" class="pull-right btn btn-primary">Enregistrer</button>
                       </div>
-
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label for="price">Prix par jour (DH)</label>
-                            <input type="number" class="form-control" id="price" placeholder="Prix par jour" value="300">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Carburant</label><br>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="fuel" id="diesel" value="diesel" checked>
-                          <label for="diesel" class="form-check-label">
-                            Diesel
-                          </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="fuel" id="gasoline" value="gasoline">
-                          <label for="gasoline" class="form-check-label">
-                            Essence
-                          </label>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label>Transmission</label><br>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="speed" id="manual" value="manual" checked>
-                          <label class="form-check-label" for="manual">
-                            Manuelle
-                          </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="speed" id="automatic" value="automatic">
-                          <label class="form-check-label" for="automatic">
-                            Automatique
-                          </label>
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
-                </div>
-
-                <br>
-                <h5><i class="fas fa-photo text-icon"></i>&nbsp;&nbsp;Photos</h5>
-                <hr class="mb-4">
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile04">
-                      <label class="custom-file-label" for="inputGroupFile04"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;Ajouter
-                        des photos</label>
                     </div>
                   </div>
                 </div>
-
-
-                <div class="row mt-5">
-                  <div class="col-12">
-                    <button type="button" class="pull-right btn btn-primary">Enregistrer</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
 

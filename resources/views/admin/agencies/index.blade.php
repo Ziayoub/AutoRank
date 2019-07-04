@@ -38,31 +38,29 @@
                     </tr>
                     </thead>
                     <tbody>
-
-                        <?php $agencies = App\Agency::all() ?>
                         @foreach($agencies as $agency)
                             <tr>
                                 <th scope="row">
-                                <a href="{{ route('admin.showUpdateAgency', 1 ) }}">{{$agency->id}}</a>
+                                    <a href="{{ route('admin.showUpdateAgency', $agency->id ) }}">{{$agency->id}}</a>
                                 </th>
                                 <td>
-                                <img src="http://placehold.it/400x400" alt="" style="height:50px;">
+                                    <img src="http://placehold.it/400x400" alt="" style="height:50px;">
                                 </td>
                                 <td>
-                                <a href="{{ route('admin.showUpdateAgency', 2 ) }}">{{$agency->name}}</a>
+                                    <a href="{{ route('admin.showUpdateAgency', $agency->id ) }}">{{$agency->name}}</a>
                                 </td>
                                 <td>{{ $agency->phone }}</td>
                                 <td>{{ $agency->address }}</td>
                                 <td>{{ $agency->city }}</td>
                                 <td>{{ $agency->created_at }}</td>
                                 <td>
-                                <a href="{{ route('admin.showUpdateModerator', 1) }}">Ayoub Modérateur</a>
+                                    <a href="{{ route('admin.showUpdateModerator', $agency->id) }}">{{ $agency->moderator->first_name}}</a>
                                 </td>
                                 <td style="min-width: 160px">
-                                <div>
-                                    <a href="{{ route('admin.showUpdateAgency', 2) }}" class="btn btn-sm btn-secondary">Modifier</a>
-                                    <a href="#" class="btn btn-sm btn-danger">Supprimer</a>
-                                </div>
+                                    <div>
+                                        <a href="{{ route('admin.showUpdateAgency', $agency->id ) }}" class="btn btn-sm btn-secondary">Modifier</a>
+                                        <a href="{{ route('admin.deleteAgency', $agency->id ) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

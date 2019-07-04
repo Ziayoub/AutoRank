@@ -17,7 +17,7 @@
               <div class="card-body">
                 <form>
                   <h4 class="mb-5">
-                    <i class="fas fa-user text-icon"></i>&nbsp;&nbsp; {{ auth()->user()->first_name .' '. auth()->user()->lastt_name  }}
+                    <i class="fas fa-user text-icon"></i>&nbsp;&nbsp; {{ auth()->user()->first_name .' '. auth()->user()->last_name  }}
                   </h4>
 
                   <div class="row">
