@@ -24,9 +24,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h2>About Modern Business</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+                    <p style="font-size:20px;"><b>AutoRank</b> est une solution pour découvrir les voiture de location, elle agrège les voitures depuis plusieurs agences de location partenaires. Ainsi que offrant à chaque agence la possibilité de créer un compte et lister et gérer leurs voitures de location.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -42,11 +40,11 @@
                                  style="height: 200px;width:200px">
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Team Member</h4>
+                            <h4 class="card-title">Ayoub Ziani</h4>
                             <h6 class="card-subtitle mb-2 text-muted">Position</h6>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum
                                 fugiat odio officiis odit.</p>
-                            <a href="#">name@example.com</a>
+                            <a href="#">aayoub056@gmail.com</a>
                         </div>
                     </div>
                 </div>
@@ -56,10 +54,10 @@
                             <img class="card-img-top rounded-circle" src="http://placehold.it/750x450" alt="" style="height: 200px;width:200px">
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Team Member</h4>
+                            <h4 class="card-title">Achraf Tazi</h4>
                             <h6 class="card-subtitle mb-2 text-muted">Position</h6>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
-                            <a href="#">name@example.com</a>
+                            <a href="#">achrafexo@gmail.com</a>
                         </div>
                     </div>
                 </div>

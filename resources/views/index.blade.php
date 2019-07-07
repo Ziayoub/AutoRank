@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Index')
+@section('title', 'Accueil')
 
 @section('content')
 
@@ -96,10 +96,23 @@
       </div>
       <hr class="my-4">
       <h1 class="my-4 text-center mb-5">Nos agences</h1>
-      <br><br>
+
 
       <!-- Agency Card -->
+        <?php $agencies = App\Agency::all(); ?>
+
       <div class="row">
+          <?php
+          $i = 0 ;?>
+
+          @foreach($agencies as $agency)
+      <?php
+            $i++ ;
+                  if ($i <= 3 )
+                      {
+
+
+              ?>
         <div class="col-lg-4 mb-4">
           <div class="card">
             <a href="agency.html">
@@ -107,25 +120,29 @@
             </a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="/agency">Agence 1</a>
+                <a href="{{ route('agency', $agency->id) }}">{{ $agency->name }}</a>
               </h4>
               <p class="card-text">
                 <div class="mb-2">
                   <div class="d-flex align-items-center">
                     <i style="width:22px" class="fa text-icon fa-car"></i>
-                    <span>12 Voitures</span>
+                    <span>23 Voitures</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <i style="width:22px" class="fa text-icon fa-map-marker-alt"></i>
-                    <span>Tanger</span>
+                    <span>{{ $agency->city }}</span>
                   </div>
                 </div>
               </p>
             </div>
           </div>
         </div>
-
+          <?php
+          }
+          ?>
+          @endforeach
       </div>
+
       <!-- /.row -->
       <div class="text-center my-5">
         <a href="/agencies" class="h4">Voir toutes les agences</a>

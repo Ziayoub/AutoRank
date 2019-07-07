@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth','approved']], function () {
 
     /*  ---------------- Car Routes: for Admin & Mod ---------------- */
     Route::get('/admin/cars', 'CarController@showCars')->name('admin.showCars');
-    Route::get('/admin/cars/new', 'CarController@showCreateCar')->name('admin.showCreateCar');
+    Route::get('/admin/cars/new', 'CarController@showCreateCar')->name('c');
     Route::post('/admin/cars/new', 'CarController@createCar')->name('admin.createCar');
 
 });
