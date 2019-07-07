@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <form>
                             <h4 class="mb-5">
-                                <i class="fas fa-user text-icon"></i>&nbsp;&nbsp; Moderator Moderator
+                                <i class="fas fa-user text-icon"></i>&nbsp;&nbsp;{{  auth()->user()->last_name .' '.auth()->user()->first_name }}
                             </h4>
 
                             <div class="row">
@@ -26,15 +26,14 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                                                    for="formGroupExampleInput">Nom</label>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom de moderateur"
-                                                    value="Admin">
+                                                    for="formGroupExampleInput">Prenom</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom de moderateur" value="{{ auth()->user()->first_name }}">
                                             </div>
                                             <div class="col-6">
                                                 <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                                                    for="formGroupExampleInput">Prenom</label>
+                                                    for="formGroupExampleInput">Nom</label>
                                                 <input type="text" class="form-control" id="formGroupExampleInput"
-                                                    placeholder="Prenom de moderateur" value="Admin">
+                                                    placeholder="Prenom de moderateur" value="{{ auth()->user()->last_name }}">
                                             </div>
                                         </div>
                                     </div>
@@ -45,7 +44,7 @@
                                                 <label class="text-uppercase text-letter-spacing text-sm text-secondary"
                                                     for="formGroupExampleInput2">Email</label>
                                                 <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email"
-                                                    value="admin@gmail.com">
+                                                    value="{{auth()->user()->email }}">
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +56,7 @@
                                                     for="formGroupExampleInput2">Telephone de
                                                     contact</label>
                                                 <input type="phone" class="form-control" id="formGroupExampleInput2"
-                                                    placeholder="Numero de telephone" value="">
+                                                    placeholder="Numero de telephone" value="{{ auth()->user()->phone }}">
                                             </div>
                                             <div class="col-6">
                                                 <label class="text-uppercase text-letter-spacing text-sm text-secondary"
@@ -67,7 +66,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <br> <br>
                                     <h5 class="mt-5"><i class="fas fa-key text-icon"></i>&nbsp;&nbsp;Changer le mot de passe</h5>
                                     <hr class="mb-4 mt-2" />
 
@@ -75,10 +74,9 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                                                    for="formGroupExampleInput2">Mot de
-                                                    passe</label>
-                                                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Mot de passe"
-                                                    value="K2454363">
+                                                    for="formGroupExampleInput2">ancien mot de passe</label>
+                                                <input type="password" class="form-control" id="password" placeholder="Mot de passe"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
@@ -86,10 +84,18 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="text-uppercase text-letter-spacing text-sm text-secondary"
-                                                    for="formGroupExampleInput2">Confirmation
+                                                    for="formGroupExampleInput2">Nouveau mot de passe</label>
+                                                <input type="password" class="form-control" id="new" placeholder="Nouveau" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="text-uppercase text-letter-spacing text-sm text-secondary"
+                                                       for="formGroupExampleInput2">Confirmation
                                                     de mot de passe</label>
-                                                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="confirmation"
-                                                    value="K2454363">
+                                                <input type="password" class="form-control" id="confirmation" placeholder="confirmation" value="">
                                             </div>
                                         </div>
                                     </div>
