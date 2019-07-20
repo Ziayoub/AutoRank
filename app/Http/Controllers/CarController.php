@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class CarController extends Controller
 {
@@ -98,5 +99,10 @@ class CarController extends Controller
      **/
     public function deleteCar()
     { }
+
+
+
+
+
 
 }

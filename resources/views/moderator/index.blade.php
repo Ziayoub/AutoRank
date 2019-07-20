@@ -135,9 +135,9 @@
                          end: '2019-05-20',
                      },
                      {
-                         title: 'Click for Google',
-                         url: 'http://google.com/',
-                         start: '2019-04-28'
+                         title: 'Renault Clio 4 Blanche',
+                         start: '2019-04-15',
+                         end: '2019-04-18'
                      }
                  ]
              });

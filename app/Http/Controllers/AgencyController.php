@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Agency;
 use Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\App;
 
 
 class AgencyController extends Controller
@@ -18,7 +18,8 @@ class AgencyController extends Controller
      */
     public function showAgencies()
     {
-        return view('admin.agencies.index');
+        $agencies = Agency::all();
+        return view('admin.agencies.index')->with([ 'agencies' => $agencies]);
     }
 
     /**
@@ -36,15 +37,13 @@ class AgencyController extends Controller
     {
         if (\Auth::user()->isAdmin())
         {
-            return view('admin.agencies.edit');
+          $agencies = Agency::all();
+          return view('admin.agencies.edit')->with([ 'agencies' => $agencies]);
         }
         else
         {
             return view('moderator.agency');
         }
-
-
-
     }
 
     // ------------- Admin: agencies - POST & DELETE ------------- //
@@ -53,13 +52,17 @@ class AgencyController extends Controller
      * POST /admin/agencies/{id}
      */
     public  function updateAgency()
-    { }
+    {
+        return view('admin.edit.updateAgency');
+    }
 
     /**
      * POST /admin/agencies/new
      */
     public function createAgency(Request $request)
     {
+        $agencies = Agency::all();
+
         $validatedData = $request->validate([
             'AgencyName' => 'required|string|max:255',
             'AgencyAddress' => 'required|string|max:255',
@@ -86,7 +89,7 @@ class AgencyController extends Controller
         $agency->save();
 
 
-        return redirect()->back();
+        redirect()->route('admin.index');
 
     }
 

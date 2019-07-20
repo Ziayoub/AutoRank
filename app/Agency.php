@@ -17,6 +17,7 @@ class Agency extends Model
         'user_id', 'model_id'
     ];
 
+
     public function moderator()
     {
         return $this->belongsTo('App\User', 'user_id');
