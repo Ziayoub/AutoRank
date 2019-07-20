@@ -12,7 +12,7 @@
 @stop
 
 @section('sidebar')
-   @include('partials.sidebar-mod')
+   @include('partials.sidebar')
 @stop
 
 @section('content')

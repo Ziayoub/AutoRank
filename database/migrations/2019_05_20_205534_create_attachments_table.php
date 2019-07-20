@@ -18,8 +18,8 @@ class CreateAttachmentsTable extends Migration
             $table->string('url');
             $table->string('type');
 
-            $table->unsignedBigInteger('car_id');
-            $table->unsignedBigInteger('agency_id');
+            $table->unsignedBigInteger('car_id')->nullable();
+            $table->unsignedBigInteger('agency_id')->nullable();
 
             $table->timestamps();
         });

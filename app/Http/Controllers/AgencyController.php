@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Agency;
 use Auth;
+use App\Agency;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 
 
@@ -19,7 +20,7 @@ class AgencyController extends Controller
     public function showAgencies()
     {
         $agencies = Agency::all();
-        return view('admin.agencies.index')->with([ 'agencies' => $agencies]);
+        return view('admin.agencies.index')->with(['agencies' => $agencies]);
     }
 
     /**
@@ -27,16 +28,32 @@ class AgencyController extends Controller
      */
     public function showCreateAgency()
     {
-        return view('admin.agencies.new');
+        $cities = DB::table('cities_metadata')->get()->map(function ($city) {
+            return $city->name;
+        })->toArray();
+
+        return view('admin.agencies.new', ['cities' => $cities]);
     }
 
     /**
      * GET /admin/agencies/{id}
      */
-    public  function showUpdateAgency()
+    public  function showUpdateAgency($id)
     {
-        $agencies = Agency::all();
-        return view('admin.agencies.edit')->with([ 'agencies' => $agencies]);
+        $agency = Agency::findOrFail($id);
+        $attachments = $agency->attachments()->get();
+        $cars = $agency->cars()->get()->map(function ($car) {
+            if ($car->attachments()->isNotEmpty()) {
+                $car->photo = $car->attachments()->first()->url;
+            }
+        })->toArray();
+
+        // dd($cars);
+        return view('admin.agencies.edit')->with([
+            'agency' => $agency,
+            'attachments'=> $attachments,
+            'cars'=> $cars,
+        ]);
     }
 
     // ------------- Admin: agencies - POST & DELETE ------------- //
@@ -54,25 +71,24 @@ class AgencyController extends Controller
      */
     public function createAgency(Request $request)
     {
-        $agencies = Agency::all();
-
         $validatedData = $request->validate([
-            'AgencyName' => 'required|string|max:255',
-            'AgencyAddress' => 'required|string|max:255',
-            'AgencyCity' => 'required|max:255|filled',
-            'AgencyPhone' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'city' => 'required|max:255|filled',
+            'phone' => 'required|numeric',
             'facebook' => 'string',
             'whatsapp' => 'numeric|max:255',
             'instagram' => 'string|max:255',
-
+            'photos' => 'file',
         ]);
 
+        dd($validatedData);
 
         $agency = new Agency([
-            "name" => $validatedData["AgencyName"],
-            "address" => $validatedData["AgencyAddress"],
-            "city" => $validatedData["AgencyCity"],
-            "phone" => $validatedData["AgencyPhone"],
+            "name" => $validatedData["name"],
+            "address" => $validatedData["address"],
+            "city" => $validatedData["city"],
+            "phone" => $validatedData["phone"],
             "facebook" => $validatedData["facebook"],
             "whatsapp" => $validatedData["whatsapp"],
             "instagram" => $validatedData["instagram"],
@@ -81,9 +97,8 @@ class AgencyController extends Controller
         $agency->moderator()->associate(Auth::user());
         $agency->save();
 
-
-        redirect()->route('admin.index');
-
+        dd($agency);
+        return redirect()->route('admin.index');
     }
 
     /**

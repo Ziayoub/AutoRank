@@ -3,7 +3,7 @@
 @section('title', 'Moderateur')
 
 @section('sidebar')
-  @include('partials.sidebar-admin')
+    @include('partials.sidebar')
 @stop
 
 @section('content')

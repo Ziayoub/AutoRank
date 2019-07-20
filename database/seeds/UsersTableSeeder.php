@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         $faker->addProvider(new Faker\Provider\Internet($faker));
         $faker->addProvider(new Bluemmb\Faker\PicsumPhotosProvider($faker));
 
-        // Generate 10 moderators
+        // Generate 20 moderators
         foreach (range(1, 20) as $index) {
             DB::table('users')->insert([
                 'first_name' => $faker->firstName,
