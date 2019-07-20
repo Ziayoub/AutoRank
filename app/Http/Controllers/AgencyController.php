@@ -35,8 +35,15 @@ class AgencyController extends Controller
      */
     public  function showUpdateAgency()
     {
-        $agencies = Agency::all();
-        return view('admin.agencies.edit')->with([ 'agencies' => $agencies]);
+        if (\Auth::user()->isAdmin())
+        {
+          $agencies = Agency::all();
+          return view('admin.agencies.edit')->with([ 'agencies' => $agencies]);
+        }
+        else
+        {
+            return view('moderator.agency');
+        }
     }
 
     // ------------- Admin: agencies - POST & DELETE ------------- //
