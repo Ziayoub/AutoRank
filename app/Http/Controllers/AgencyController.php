@@ -34,7 +34,17 @@ class AgencyController extends Controller
      */
     public  function showUpdateAgency()
     {
-        return view('admin.agencies.edit');
+        if (\Auth::user()->isAdmin())
+        {
+            return view('admin.agencies.edit');
+        }
+        else
+        {
+            return view('moderator.agency');
+        }
+
+
+
     }
 
     // ------------- Admin: agencies - POST & DELETE ------------- //

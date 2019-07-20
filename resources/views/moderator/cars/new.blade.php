@@ -23,125 +23,141 @@
 
 @section('content')
     <div class="container-fluid">
+        <form method="post" action="{{ route('admin.showCreateCar') }}">
+            {{ csrf_field() }}
+            <div class="row">
+                <div class="col-12">
 
-        <div class="row">
-            <div class="col-12">
+                    <!-- Details de la voiture -->
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;Ford Fiesta 2018</h4>
 
-                <!-- Details de la voiture -->
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;Ford Fiesta 2018</h4>
+                            <h5><i class="fas fa-edit text-icon"></i>&nbsp;&nbsp;Details de la voiture</h5>
+                            <hr class="mb-4">
+                            <div class="row">
+                                <div class="col-12">
 
-                        <h5><i class="fas fa-edit text-icon"></i>&nbsp;&nbsp;Details de la voiture</h5>
-                        <hr class="mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <form>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label for="brand">Marque</label>
-                                                <select class="form-control" id="brand">
-                                                    <option selected>Choisir</option>
-                                                    <option >Ford</option>
-                                                    <option>BMW</option>
-                                                    <option>Mercedes</option>
-                                                    <option>Seat</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-6">
-                                                <label for="model">Modèle</label>
-                                                <select class="form-control" id="model">
-                                                    <option selected>Choisir</option>
-                                                    <option >Fiesta</option>
-                                                    <option>Focus</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label for="production_year">Année de production</label>
-                                                <select class="form-control" id="production_year">
-                                                    <option selected>Choisir</option>
-                                                    <option>2019</option>
-                                                    <option >2018</option>
-                                                    <option>2017</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-6">
-                                                <label for="seats">Nombre de place</label>
-                                                <input type="number" class="form-control" id="seats"  value=""
-                                                       placeholder="Nombre de places">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label for="brand">Marque</label>
+                                                    <select class="form-control" @error('brand') is-invalid @enderror  id="brand" name="brand">
+                                                        <option selected>Choisir</option>
+                                                    </select>
+                                                    @error('brand')
+                                                    <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="model">Modèle</label>
+                                                    <select class="form-control" id="model"  @error('model') is-invalid @enderror name="model">
+                                                        <option selected>Choisir</option>
+                                                        <option >Fiesta</option>
+                                                    </select>
+                                                    @error('model')
+                                                    <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="price">Prix par jour (DH)</label>
-                                                <input type="number" class="form-control" id="price" placeholder="Prix par jour"
-                                                       value="">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label for="production_year">Année de production</label>
+                                                    <select class="form-control" id="production_year" name="production_year" @error('production_year') is-invalid @enderror>
+                                                        <option selected>Choisir</option>
+                                                        <option>2019</option>
+                                                    </select>
+                                                    @error('production_year')
+                                                    <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="seats">Nombre de place</label>
+                                                    <input type="number" class="form-control" id="seats"  name="seats" @error('seats') is-invalid @enderror placeholder="Nombre de places">
+                                                    @error('seats')
+                                                    <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label>Carburant</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="fuel" id="diesel" value="diesel" >
-                                            <label for="diesel" class="form-check-label"> Diesel </label>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="price">Prix par jour (DH)</label>
+                                                    <input type="number" class="form-control" id="price" name="price" @error('price') is-invalid @enderror placeholder="Prix par jour" value="">
+                                                    @error('price')
+                                                    <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="fuel" id="gasoline" value="gasoline">
-                                            <label for="gasoline" class="form-check-label"> Essence    </label>
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label>Transmission</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="speed" id="manual" value="manual" >
-                                            <label class="form-check-label" for="manual">  Manuelle </label>
+                                        <div class="form-group">
+                                            <label>Carburant</label><br>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="fuel" id="diesel" value="diesel" @error('diesel') is-invalid @enderror>
+                                                <label for="diesel" class="form-check-label" name="fuel"> Diesel </label>
+                                                @error('diesel')
+                                                <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="fuel" id="gasoline" value="gasoline" @error('gasoline') is-invalid @enderror>
+                                                <label for="gasoline" class="form-check-label" > Essence    </label>
+                                                @error('gasoline')
+                                                <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="speed" id="automatic" value="automatic">
-                                            <label class="form-check-label" for="automatic">  Automatique </label>
+
+                                        <div class="form-group">
+                                            <label>Transmission</label><br>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="speed" id="manual" value="manual" @error('manual') is-invalid @enderror>
+                                                <label class="form-check-label" for="manual">  Manuelle </label>
+                                                @error('manual')
+                                                <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="speed" id="automatic" value="automatic" @error('automatic') is-invalid @enderror>
+                                                <label class="form-check-label" for="automatic">  Automatique </label>
+                                                @error('automatic')
+                                                <div class=" pt-1 text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </form>
-                            </div>
-                        </div>
-
-                        <br>
-                        <h5><i class="fas fa-photo text-icon"></i>&nbsp;&nbsp;Photos</h5>
-                        <hr class="mb-4">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile04">
-                                    <label class="custom-file-label" for="inputGroupFile04"><i
-                                            class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;Ajouter
-                                        des photos</label>
                                 </div>
                             </div>
-                        </div>
 
-
-                        <div class="row mt-5">
-                            <div class="col-12">
-                                <button type="button" class="pull-right btn btn-primary">Enregistrer</button>
+                            <br>
+                            <h5><i class="fas fa-photo text-icon"></i>&nbsp;&nbsp;Photos</h5>
+                            <hr class="mb-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                        <label class="custom-file-label" for="inputGroupFile04"><i
+                                                class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;Ajouter
+                                            des photos</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <button type="submit" class="pull-right btn btn-primary">Enregistrer</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
+        </form>
         <!-- Calendar -->
         <div class="card mb-3">
             <div class="card-body">
