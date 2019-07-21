@@ -26,7 +26,7 @@ class Car extends Model
 
     public function carModel()
     {
-        return $this->belongsTo('App\CarModel');
+        return $this->belongsTo('App\CarModel', 'model_id');
     }
 
     public function attachments()

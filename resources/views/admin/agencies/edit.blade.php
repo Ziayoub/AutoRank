@@ -125,22 +125,22 @@
                             @foreach ($cars as $car)
                                 <tr>
                                     <th scope="row">
-                                        <a href="{{ route('admin.showUpdateCar', 1) }}">{{ $car->id }}</a>
+                                        <a href="{{ route('admin.showUpdateCar', $car['id']) }}">{{ $car['id'] }}</a>
                                     </th>
                                     <td>
-                                        <img src="{{ $car->photo }}" alt="" style="height:50px;">
+                                        <img src="{{ $car["photo"] }}" alt="" style="height:50px;">
                                     </td>
-                                    <td>Ford</td>
-                                    <td>Fiesta</td>
-                                    <td>2018</td>
-                                    <td>200</td>
-                                    <td>200000</td>
-                                    <td>5</td>
-                                    <td>Diesel</td>
-                                    <td>Manuelle</td>
+                                    <td>{{ $car['name'] }}</td>
+                                    <td>{{ $car['model'] }}</td>
+                                    <td>{{ $car['production_year'] }}</td>
+                                    <td>{{ $car['price'] }}</td>
+                                    <td>{{ $car['kilometers'] }} km</td>
+                                    <td>{{ $car['seats'] }}</td>
+                                    <td>{{ $car['fuel'] }}</td>
+                                    <td>{{ $car['speed'] }}</td>
                                     <td style="min-width: 170px">
                                         <div>
-                                        <a href="{{ route('admin.showUpdateCar', 1) }}" class="btn btn-sm btn-secondary">Modifier</a>
+                                        <a href="{{ route('admin.showUpdateCar', $car['id']) }}" class="btn btn-sm btn-secondary">Modifier</a>
                                         <a href="#" class="btn btn-sm btn-danger">Supprimer</a>
                                         </div>
                                     </td>

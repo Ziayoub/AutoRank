@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class CarController extends Controller
@@ -28,25 +29,33 @@ class CarController extends Controller
      */
     public function showCreateCar(Request $request)
     {
-
-        if (\Auth::user()->isAdmin())
-        {
-
-            return view('admin.cars.new');
-        }
-        else
-        {
-            return view('moderator.cars.new');
-        }
-
+        return view('admin.cars.new');
     }
 
     /**
      * GET /admin/cars/{id}
      */
-    public function showUpdateCar()
+    public function showUpdateCar($id)
     {
+        $brands = [];
+        foreach (DB::table('cars_metadata')->get() as $carMetadata) {
+            if (!array_key_exists($carMetadata->brand, $brands)) {
+                $brands[$carMetadata->brand] = [$carMetadata->model];
+            } else {
+                array_push($brands[$carMetadata->brand], $carMetadata->model);
+            }
+        }
 
+        $car = Car::findOrFail($id);
+        $data = [
+            'name' => $car->name,
+            'model' => $car->carModel()->first()->name,
+            'brand' => $car->carModel()->first()->brand()->first()->name,
+        ];
+        return view('admin.cars.edit', [
+            'brandsMetadata' => $brands,
+            'car' => $data
+        ]);
     }
 
     //------------- Admin: cars - POST & DELETE ------------- //
@@ -56,7 +65,6 @@ class CarController extends Controller
      */
     public function createCar(Request $request)
     {
-
         $validateData = $request->validate([
             'brand' => 'required|in:seat,peugeot,citroen|',
             'model' => 'required|in:C4,Leon ',
@@ -99,10 +107,6 @@ class CarController extends Controller
      **/
     public function deleteCar()
     { }
-
-
-
-
 
 
 }

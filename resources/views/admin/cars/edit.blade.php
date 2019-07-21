@@ -28,7 +28,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./cars.html">Voitures</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Ford Fiesta 2018</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $car['name'] }}</li>
           </ol>
         </nav>
 
@@ -39,7 +39,7 @@
             <!-- Details de la voiture -->
             <div class="card">
               <div class="card-body">
-                <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;Ford Fiesta 2018</h4>
+                <h4 class="mb-5"><i class="fas fa-car text-icon"></i>&nbsp;&nbsp;{{$car['name']}}</h4>
 
                 <h5><i class="fas fa-edit text-icon"></i>&nbsp;&nbsp;Details de la voiture</h5>
                 <hr class="mb-4">
@@ -52,18 +52,19 @@
                             <label for="brand">Marque</label>
                             <select class="form-control" id="brand">
                               <option>Choise</option>
-                              <option selected>Ford</option>
-                              <option>BMW</option>
-                              <option>Mercedes</option>
-                              <option>Seat</option>
+                              <option value="{{ $car['brand'] }}" selected>{{ $car['brand'] }}</option>
+                              @foreach (array_keys($brandsMetadata) as $brand)
+                                <option value={{ str_replace(' ', '_', $brand) }}>{{ ucfirst($brand) }}</option>
+                              @endforeach
                             </select>
                           </div>
                           <div class="col-6">
                             <label for="model">Modèle</label>
                             <select class="form-control" id="model">
-                              <option>Choise</option>
-                              <option selected>Fiesta</option>
-                              <option>Focus</option>
+                              <option value="{{ $car['model'] }}" selected>{{ $car['model'] }}</option>
+                              @foreach ($brandsMetadata[$car['brand']] as $model)
+                                <option value={{ str_replace(' ', '_', $model) }}>{{ ucfirst($model) }}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
@@ -186,6 +187,22 @@
 
 @section('scripts')
   <script>
+    const brands = @json($brandsMetadata);
+    $('#brand').change(function() {
+        var brand = $(this).val().replace('_', ' ');
+        nextModels = brands[brand];
+
+        selectEl = document.createElement('select')
+        nextOptions = nextModels.map(function(model, index) {
+            optionEl = document.createElement('option');
+            optionEl.value = model.replace(/ /g, '_');
+            optionEl.innerText = model;
+            return optionEl;
+        });
+
+        $('select#model').empty().append(nextOptions)
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
       var Calendar = FullCalendar.Calendar;
       var Draggable = FullCalendarInteraction.Draggable

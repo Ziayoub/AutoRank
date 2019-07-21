@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(CitiesMetadataTableSeeder::class);
+        $this->call(CarsMetadataTableSeeder::class);
+
         $this->call(UsersTableSeeder::class);
         $this->call(BrandTableSeeder::class);
         $this->call(ModelTableSeeder::class);
@@ -19,7 +22,5 @@ class DatabaseSeeder extends Seeder
         $this->call(AttachmentTableSeeder::class);
         $this->call(UnavailabilityTableSeeder::class);
 
-        $this->call(CitiesMetadataTableSeeder::class);
-        $this->call(CarsMetadataTableSeeder::class);
     }
 }
