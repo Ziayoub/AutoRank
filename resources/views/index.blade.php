@@ -10,7 +10,7 @@
     <header class="bg-primary py-5 mb-5" style="height:700px">
       <div class="container h-100">
         <div class="row h-100">
-          <div class="col-lg-12">
+          <div class="col-lg-12 px-5">
             <h1 class="display-4 text-white mt-5 mb-2">
               <img src="{{asset('assets/img/brand/white.png')}}"  alt="" style="height: 80px;">
             </h1>
@@ -34,61 +34,73 @@
       <!-- Search -->
       <div class="card p-4" style="top:-120px;">
         <div class="card-body">
-          <form>
+          <form method="get" action="{{ route('search') }}">
+            {{ csrf_field() }}
             <div class="form-group">
-              <label class="text-uppercase text-letter-spacing text-sm text-muted" for="exampleFormControlSelect1">Agence</label>
-              <select class="form-control" placeholder="Agence" id="exampleFormControlSelect1">
-                <option selected>Choisir</option>
-                <option>Agence 1 </option>
-                <option>Agence 2</option>
-                <option>Agence 3 </option>
-              </select>
+                <label class="text-uppercase text-letter-spacing text-sm text-muted @error('agency') is-invalid @enderror" for="agency">Agence</label>
+                <select class="form-control" placeholder="Agence" id="agency" name="agency">
+                    <option value="" selected>Choisir</option>
+                    @foreach ($agencies as $agency)
+                        <option value="{{ $agency->id }}">{{ $agency->name }}</option>
+                    @endforeach
+                </select>
+                @error('agency')
+                    <div class=" pt-1 text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group">
               <div class="row">
                 <div class="col-6">
-                  <label class="text-uppercase text-letter-spacing text-sm text-muted" for="formGroupExampleInput2">Marque</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                    <label class="text-uppercase text-letter-spacing text-sm text-muted @error('brand') is-invalid @enderror" for="brand">Marque</label>
+                    <select class="form-control" id="brand" name="brand">
+                        <option value="" selected>Choisir</option>
+                        @foreach (array_keys($brands) as $brand)
+                            <option value={{ str_replace(' ', '_', $brand) }}>{{ ucfirst($brand) }}</option>
+                        @endforeach
+                    </select>
+                    @error('brand')
+                        <div class=" pt-1 text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-6">
-                  <label class="text-uppercase text-letter-spacing text-sm text-muted" for="formGroupExampleInput2">Model</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Model</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                    <label class="text-uppercase text-letter-spacing text-sm text-muted @error('model') is-invalid @enderror" for="model">Model</label>
+                    <select class="form-control" id="model" name="model">
+                        <option value="" selected>Choisir</option>
+                    </select>
+                    @error('model')
+                        <div class=" pt-1 text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
               </div>
             </div>
 
               <div class="row">
                 <div class="form-group col-6 mb-0">
-                  <label class="text-uppercase text-letter-spacing text-sm text-muted" for="exampleFormControlSelect1">Filter par</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Prix croissant</option>
-                    <option>Prix décroissant</option>
-                  </select>
+                    <label class="text-uppercase text-letter-spacing text-sm text-muted" for="price_filter">Filter par</label>
+                    <select class="form-control @error('price_filter') is-invalid @enderror" id="price_filter" name="price_filter">
+                        <option value="asc">Prix croissant</option>
+                        <option value="desc">Prix décroissant</option>
+                    </select>
+                    @error('price_filter')
+                        <div class=" pt-1 text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group col-6 mb-0">
-                  <label class="text-uppercase text-letter-spacing text-sm text-muted" for="exampleFormControlSelect1">Filter par ville</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Tanger</option>
-                    <option>Tetouan</option>
-                    <option>Chefchaouen</option>
-                  </select>
+                    <label class="text-uppercase text-letter-spacing text-sm text-muted @error('city') is-invalid @enderror" for="city">Filter par ville</label>
+                    <select class="form-control" id="city" name="city">
+                        <option value="">Ville</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city }}">{{ ucfirst($city) }}</option>
+                        @endforeach
+                    </select>
+                    @error('city')
+                        <div class=" pt-1 text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
               </div>
              <div class="row mt-5">
                 <div class="col-12 text-right">
-                  <button type="submit" class="btn btn-primary btn-lg" href="/cars">Rechercher</button>
+                  <button type="submit" class="btn btn-primary btn-lg">Rechercher</button>
                 </div>
               </div>
           </form>
@@ -97,50 +109,33 @@
       <hr class="my-4">
       <h1 class="my-4 text-center mb-5">Nos agences</h1>
 
-
-      <!-- Agency Card -->
-        <?php $agencies = App\Agency::all(); ?>
-
       <div class="row">
-          <?php
-          $i = 0 ;?>
-
-          @foreach($agencies as $agency)
-      <?php
-            $i++ ;
-                  if ($i <= 3 )
-                      {
-
-
-              ?>
-        <div class="col-lg-4 mb-4">
-          <div class="card">
-            <a href="agency.html">
-              <img class="card-img-top" src="http://placehold.it/500x400" alt="">
-            </a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="{{ route('agency', $agency->id) }}">{{ $agency->name }}</a>
-              </h4>
-              <p class="card-text">
-                <div class="mb-2">
-                  <div class="d-flex align-items-center">
-                    <i style="width:22px" class="fa text-icon fa-car"></i>
-                    <span>23 Voitures</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <i style="width:22px" class="fa text-icon fa-map-marker-alt"></i>
-                    <span>{{ $agency->city }}</span>
-                  </div>
+        @foreach($featuredAgencies as $agency)
+            <div class="col-lg-4 mb-4">
+                <div style="min-height:350px" class="card">
+                    <a href="{{ route('agency', $agency->id )}}">
+                    <img style="height:200px;object-fit:cover;" class="card-img-top" src="{{ $agency->photo() }}" alt="">
+                    </a>
+                    <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="{{ route('agency', $agency->id) }}">{{ $agency->name }}</a>
+                    </h4>
+                    <p class="card-text">
+                        <div class="mb-2">
+                        <div class="d-flex align-items-center">
+                            <i style="width:22px" class="fa text-icon fa-car"></i>
+                            <span>{{ $agency->cars()->get()->count() }} Voitures</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i style="width:22px" class="fa text-icon fa-map-marker-alt"></i>
+                            <span>{{ $agency->city }}</span>
+                        </div>
+                        </div>
+                    </p>
+                    </div>
                 </div>
-              </p>
             </div>
-          </div>
-        </div>
-          <?php
-          }
-          ?>
-          @endforeach
+        @endforeach
       </div>
 
       <!-- /.row -->
@@ -156,60 +151,63 @@
       <br><br>
 
       <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card">
-            <a href="agency.html">
-              <img class="card-img-top" src="http://placehold.it/500x400" alt="">
-            </a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <div class="d-flex justify-content-between">
-                  <a href="/car">Fiat Panda</a>
-                  <h5 class="text-right">200 <small>DH/Jour</small></h5>
+          @foreach($featuredCars as $car)
+             <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div style="min-height:360px" class="card">
+                    <a href="{{ route('car', $car->id)}}">
+                        <img style="height:200px;object-fit:cover;" class="card-img-top" src="{{ $car->photo() }}" alt="">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('car', $car->id) }}">{{ $car->name }}</a>
+                                <h5 class="text-right">{{ $car->price }} <small>DH/Jour</small></h5>
+                            </div>
+                        </h4>
+                        <p class="card-text">
+                            <div class="mb-2">
+                                <div class="d-flex align-items-center">
+                                    <i style="width:22px" class="fa text-icon fa-car"></i>
+                                    <span>{{ $car->seats }} Places</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i style="width:22px" class="fa text-icon fa-gas-pump"></i>
+                                    <span>{{ $car->fuel }}</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i style="width:22px" class="fa text-icon fa-cog"></i>
+                                    <span>Vitesse {{ $car->speed }}</span>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
                 </div>
-              </h4>
-              <p class="card-text">
-                <div class="mb-2">
-                  <div class="d-flex align-items-center">
-                    <i style="width:22px" class="fa text-icon fa-car"></i>
-                    <span>5 Places</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <i style="width:22px" class="fa text-icon fa-gas-pump"></i>
-                    <span>Diesel</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <i style="width:22px" class="fa text-icon fa-cog"></i>
-                    <span>Vitesse automatique</span>
-                  </div>
-                </div>
-              </p>
             </div>
-          </div>
+            @endforeach
         </div>
 
-      </div>
-      <!-- /.row -->
-
-      <div class="text-center my-5">
-        <a href="/cars" class="h4">Voir 31 autre voitures...</a>
-      </div>
-
-      <div class="space-200"></div>
-
-      <!-- Features Section -->
-      <div class="row">
-        <div class="col-lg-6">
-          <h2>Êtes-vous propréritère d'une agence de location de voitures?</h2>
-          <p>Rejoindre notre réseau gratuitement</p>
-
-          <a class="mt-4 btn btn-lg btn-primary" href="/register">Inscrire mon agence</a>
+        <div class="text-center my-5">
+            <a href="/cars" class="h4">Voir autres voitures...</a>
         </div>
-        <div class="col-lg-6 position-relative">
-          <div class="art-join-us">
-            @include('partials.svg.onboarding')
-          </div>
+
+        <div class="space-200"></div>
+
+        <!-- Features Section -->
+        <div class="row px-5">
+            <div class="col-lg-6 col-sm-12">
+            <h2 class="mt-4">Êtes-vous propréritère d'une agence de location de voitures?</h2>
+            <p>Rejoindre notre réseau gratuitement</p>
+
+            <a class="mt-4 btn btn-lg btn-primary mb-4" href="/register">Inscrire mon agence</a>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+            <div class="art art-join-us">
+                @include('partials.svg.onboarding')
+            </div>
+            </div>
         </div>
+        <!-- /.row -->
+
       </div>
       <!-- /.row -->
 
@@ -222,3 +220,24 @@
     @include('partials.footer')
 
 @stop
+
+@section('scripts')
+  <script>
+    const brands = @json($brands);
+    $('#brand').change(function() {
+        var brand = $(this).val().replace('_', ' ');
+        nextModels = brands[brand];
+
+        selectEl = document.createElement('select')
+        nextOptions = nextModels.map(function(model, index) {
+            optionEl = document.createElement('option');
+            optionEl.value = model.replace(/ /g, '_');
+            optionEl.innerText = model;
+            return optionEl;
+        });
+
+        $('select#model').empty().append(nextOptions)
+    });
+  </script>
+@stop
+

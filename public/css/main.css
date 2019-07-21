@@ -10642,23 +10642,21 @@ nav {
 }
 
 .art {
-  position: absolute;
-  top: -456px;
-  height: 10px;
+  width: 90%;
+  height: auto;
+  margin-top: -36%;
+}
+
+.art svg {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
   left: 100px;
 }
 
 .art-join-us {
-  position: absolute;
-  height: 10px;
-  left: 0px;
-}
-
-.art-join-us svg {
-  position: absolute;
-  height: 500px;
-  left: -300px;
-  top: -100px;
+  margin-top: 40px;
+  max-width: 600px;
 }
 
 .text-icon {

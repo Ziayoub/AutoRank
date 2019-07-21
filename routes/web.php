@@ -14,6 +14,7 @@ Route::get('/pending', function () {
 /*  ---------------- Pages Routes ---------------- */
 Route::get('/', 'PagesController@index')->name('index');
 Route::get('/about','PagesController@about')->name('about');
+Route::get('/search','PagesController@search')->name('search');
 Route::get('/contact','PagesController@contact')->name('contact');
 Route::get('/agencies','PagesController@agencies')->name('agencies');;
 Route::get('/agencies/{id}','PagesController@agency')->name('agency');;

@@ -19,6 +19,16 @@ class Car extends Model
     ];
 
 
+    public function photo()
+    {
+        $attachments = $this->attachments()->get();
+        if ($attachments->isNotEmpty()) {
+            return $attachments->first()->url;
+        }
+        return 'https://i.imgur.com/PP8nupp.png';
+    }
+
+
     public function agency()
     {
         return $this->belongsTo('App\Agency');

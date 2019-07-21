@@ -14,6 +14,7 @@ class CarController extends Controller
      */
     public function showCars()
     {
+
         if (\Auth::user()->isAdmin())
         {
             return view('admin.cars.index');

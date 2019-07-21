@@ -9,13 +9,11 @@
     {{-- Navbar --}}
     @include('partials.navbar')
 
-
-
         <!-- Page Content -->
         <div class="container">
 
-            <br>
-            <h1 class="mt-4 mb-3">À propos</h1>
+            <br><br><br><br>
+            <h1 class="mt-5 mb-5">À propos</h1>
 
             <!-- Intro Content -->
             <div class="row">
@@ -23,14 +21,14 @@
                     <img class="img-fluid rounded mb-4" src="http://placehold.it/750x450" alt="">
                 </div>
                 <div class="col-lg-6">
-                    <h2>About Modern Business</h2>
-                    <p style="font-size:20px;"><b>AutoRank</b> est une solution pour découvrir les voiture de location, elle agrège les voitures depuis plusieurs agences de location partenaires. Ainsi que offrant à chaque agence la possibilité de créer un compte et lister et gérer leurs voitures de location.</p>
+                    {{-- <h2>About Modern Business</h2> --}}
+                    <p style="font-size:20px;line-height:40px"><b>AutoRank</b> est une solution pour découvrir les voiture de location, elle agrège les voitures depuis plusieurs agences de location partenaires. Ainsi que offrant à chaque agence la possibilité de créer un compte et lister et gérer leurs voitures de location.</p>
                 </div>
             </div>
             <!-- /.row -->
 
             <!-- Team Members -->
-            <h1 class="text-center space-100">Our Team</h1>
+            <h1 class="text-center space-100">Équipe</h1>
 
             <div class="row justify-content-center">
                 <div class="col-lg-4 mb-4">

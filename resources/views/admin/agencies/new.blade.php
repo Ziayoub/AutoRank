@@ -40,7 +40,7 @@
                                                 <div class="col-3">
                                                     <label for="city" class="text-uppercase text-muted text-sm text-letter-spacing">Ville</label>
                                                     <select class="form-control @error('city') is-invalid @enderror" id="city" name="city">
-                                                        <option value="null" selected>Ville</option>
+                                                        <option value="" selected>Ville</option>
                                                         @foreach ($cities as $city)
                                                             <option value="{{ $city }}">{{ ucfirst($city) }}</option>
                                                         @endforeach

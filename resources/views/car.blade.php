@@ -6,11 +6,11 @@
 <!-- Styles  -->
 @section('styles')
     <!-- Fullcalendar -->
-    <link href='vendor/fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='vendor/fullcalendar/list/main.css' rel='stylesheet' />
-    <script src='vendor/fullcalendar/core/main.js'></script>
-    <script src='vendor/fullcalendar/core/locales/fr.js'></script>
-    <script src='vendor/fullcalendar/daygrid/main.js'></script>
+    <link href="{{ asset('/vendor/fullcalendar/core/main.css') }}" rel='stylesheet' />
+    <link href="{{ asset('/vendor/fullcalendar/list/main.css') }}" rel='stylesheet' />
+    <script src="{{ asset('/vendor/fullcalendar/core/main.js') }}"></script>
+    <script src="{{ asset('/vendor/fullcalendar/core/locales/fr.js') }}"></script>
+    <script src="{{ asset('/vendor/fullcalendar/daygrid/main.js') }}"></script>
 @stop
 
 
@@ -34,15 +34,11 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="http://placehold.it/1000x400" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="http://placehold.it/1000x400" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="http://placehold.it/1000x400" alt="Third slide">
-                        </div>
+                        @foreach ($car->attachments()->get() as $attachment)
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ $attachment->url }}" alt="First slide">
+                            </div>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,37 +52,33 @@
             </div>
         </div>
         <br>
-        <h4 class="mb-4 font-weight-light">Détails de la voiture : <b>Renault Clio 4 </b></h4>
+        <h4 class="mb-4 font-weight-light">Détails de la voiture : <b>{{ $car->name }} </b></h4>
 
         <div class="row">
             <div class="col-md-4">
                 <div class="mb-3">
                     <div class="text-uppercase text-letter-spacing text-sm text-muted">Année de production</div>
-                    <div class="font-weight-bold">2019</div>
+                    <div class="font-weight-bold">{{ $car->production_year }}</div>
                 </div>
                 <div class="mb-3">
                     <div class="text-uppercase text-letter-spacing text-sm text-muted">Nombre de places</div>
-                    <div class="font-weight-bold">6</div>
+                    <div class="font-weight-bold">{{ $car->seats }}</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="mb-3">
                     <div class="text-uppercase text-letter-spacing text-sm text-muted">Carburant</div>
-                    <div class="font-weight-bold">Diesel</div>
+                    <div class="font-weight-bold">{{ ucfirst($car->fuel) }}</div>
                 </div>
                 <div class="mb-3">
                     <div class="text-uppercase text-letter-spacing text-sm text-muted">Transmission</div>
-                    <div class="font-weight-bold">Auto</div>
+                    <div class="font-weight-bold">{{ ucfirst($car->speed) }}</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="mb-3">
                     <div class="text-uppercase text-letter-spacing text-sm text-muted">Kilométrage</div>
-                    <div class="font-weight-bold">2000 <span class="font-weight-light">Km</span></div>
-                </div>
-                <div class="mb-3">
-                    <div class="text-uppercase text-letter-spacing text-sm text-muted">Couleur</div>
-                    <div class="font-weight-bold">Blanche </div>
+                    <div class="font-weight-bold">{{ $car->kilometers }} <span class="font-weight-light">Km</span></div>
                 </div>
             </div>
         </div>
@@ -100,7 +92,7 @@
                 <p class="card-text">
                     <div>1 jour</div>
                     <br>
-                    <span class="display-4">350</span>
+                    <span class="display-4">{{ $car->price }}</span>
                     <span class="font-weight-light">Dh</span>
                 </p>
                 <button class="mt-3 w-100 btn btn-primary">
@@ -127,68 +119,68 @@
 @stop
 
 @section('scripts')
-    <script>
+   <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar-index');
+    document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
 
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: ['dayGrid'],
-                defaultDate: '2019-04-12',
-                editable: true,
-                eventLimit: true, // allow "more" link when too many events
-                locale: 'fr',
-                events: [
-                    {
-                        title: 'Mercedes AMG — Agence Al Boughaz',
-                        start: '2019-05-25',
-                        backgroundColor: 'blue',
-                    },
-                    {
-                        title: 'Renault Clio 4 Rouge — Agence Al Boughaz',
-                        start: '2019-05-19',
-                        end: '2019-05-30'
-                    },
-                    {
-                        groupId: 1,
-                        title: 'Ford Fiesta — HMZ CAr',
-                        start: '2019-04-09',
-                        backgroundColor: '#28a745',
-                    },
-                    {
-                        groupId: 1,
-                        title: 'Ford Fiesta — HMZ CAr',
-                        start: '2019-04-16',
-                        backgroundColor: '#28a745',
-                    },
-                    {
-                        title: 'Ford Fiesta — HMZ CAr',
-                        start: '2019-04-11',
-                        end: '2019-04-13',
-                        backgroundColor: '#28a745',
-                    },
-                    {
-                        title: 'Renault Clio 4 Blanche — HMZ CAr',
-                        start: '2019-05-01',
-                        end: '2019-05-05',
-                        backgroundColor: '#28a745',
-                    },
-                    {
-                        title: 'Renault Clio 4 Blanche — HMZ CAr',
-                        start: '2019-05-14',
-                        end: '2019-05-20',
-                        backgroundColor: '#28a745',
-                    },
-                    {
-                        title: 'Click for Google',
-                        url: 'http://google.com/',
-                        start: '2019-04-28'
-                    }
-                ]
-            });
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['dayGrid'],
+        defaultDate: '2019-04-12',
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+        locale: 'fr',
+        events: [
+        {
+            title: 'Mercedes AMG — Agence Al Boughaz',
+            start: '2019-05-25',
+            backgroundColor: 'blue',
+        },
+        {
+            title: 'Renault Clio 4 Rouge — Agence Al Boughaz',
+            start: '2019-05-19',
+            end: '2019-05-30'
+        },
+        {
+            groupId: 1,
+            title: 'Ford Fiesta — HMZ CAr',
+            start: '2019-04-09',
+            backgroundColor: '#28a745',
+        },
+        {
+            groupId: 1,
+            title: 'Ford Fiesta — HMZ CAr',
+            start: '2019-04-16',
+            backgroundColor: '#28a745',
+        },
+        {
+            title: 'Ford Fiesta — HMZ CAr',
+            start: '2019-04-11',
+            end: '2019-04-13',
+            backgroundColor: '#28a745',
+        },
+        {
+            title: 'Renault Clio 4 Blanche — HMZ CAr',
+            start: '2019-05-01',
+            end: '2019-05-05',
+            backgroundColor: '#28a745',
+        },
+        {
+            title: 'Renault Clio 4 Blanche — HMZ CAr',
+            start: '2019-05-14',
+            end: '2019-05-20',
+            backgroundColor: '#28a745',
+        },
+        {
+            title: 'Click for Google',
+            url: 'http://google.com/',
+            start: '2019-04-28'
+        }
+        ]
+    });
 
-            calendar.render();
-        });
+    calendar.render();
+    });
 
-    </script>
+</script>
 @stop

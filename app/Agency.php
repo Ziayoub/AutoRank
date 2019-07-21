@@ -23,6 +23,14 @@ class Agency extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function photo() {
+        $attachments = $this->attachments()->get();
+        if ($attachments->isNotEmpty()) {
+            return $attachments->first()->url;
+        }
+        return 'https://www.hotels.tv/blog/auckland/wp-content/uploads/sites/87/2014/06/car-hire.jpg';
+    }
+
     public function cars()
     {
         return $this->hasMany('App\Car');

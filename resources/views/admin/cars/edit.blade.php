@@ -51,7 +51,6 @@
                           <div class="col-6">
                             <label for="brand">Marque</label>
                             <select class="form-control" id="brand">
-                              <option>Choise</option>
                               <option value="{{ $car['brand'] }}" selected>{{ $car['brand'] }}</option>
                               @foreach (array_keys($brandsMetadata) as $brand)
                                 <option value={{ str_replace(' ', '_', $brand) }}>{{ ucfirst($brand) }}</option>

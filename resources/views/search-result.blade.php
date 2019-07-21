@@ -10,8 +10,12 @@
         <div class="row">
 
             <div class="col-lg-12 mt-5">
-                <div class="row">
-                    <h1 class="mt-5 mb-5">Voitures</h1>
+                <div class="row mt-5">
+                    <h1 class="">Résulat de la recherche</h1>
+                    <br>
+                </div>
+                <div class="row mb-5">
+                    <h5 class="text-secondary">{{ $cars->count()}} voitures trouvées</h5>
                 </div>
 
                 <div class="row mt-4">
