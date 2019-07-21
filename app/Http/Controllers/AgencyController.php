@@ -43,16 +43,23 @@ class AgencyController extends Controller
         $agency = Agency::findOrFail($id);
         $attachments = $agency->attachments()->get();
         $cars = $agency->cars()->get()->map(function ($car) {
-            if ($car->attachments()->isNotEmpty()) {
+            if ($car->attachments()->get()->isNotEmpty()) {
                 $car->photo = $car->attachments()->first()->url;
+            } else {
+                $car->photo = 'https://i.imgur.com/PP8nupp.png';
             }
+
+            if ($car->carModel()->first()) {
+                $car->model = $car->carModel()->first()->name;
+            }
+
+            return $car;
         })->toArray();
 
-        // dd($cars);
         return view('admin.agencies.edit')->with([
             'agency' => $agency,
-            'attachments'=> $attachments,
-            'cars'=> $cars,
+            'attachments' => $attachments,
+            'cars' => $cars,
         ]);
     }
 

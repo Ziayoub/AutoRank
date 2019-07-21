@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -25,10 +26,12 @@ class CarController extends Controller
     /**
      * GET /admin/cars/new
      */
-    public function showCreateCar()
+    public function showCreateCar(Request $request)
     {
+
         if (\Auth::user()->isAdmin())
         {
+
             return view('admin.cars.new');
         }
         else
@@ -43,14 +46,7 @@ class CarController extends Controller
      */
     public function showUpdateCar()
     {
-        if (\Auth::user()->isAdmin())
-        {
-            return view('admin.cars.edit');
-        }
-        else
-        {
-            return view('moderator.cars.edit');
-        }
+
     }
 
     //------------- Admin: cars - POST & DELETE ------------- //
@@ -58,10 +54,38 @@ class CarController extends Controller
     /**
      * POST /admin/cars/new
      */
-    public function createCar()
+    public function createCar(Request $request)
     {
-        $name = Input::get('fuel');
-        dd($name);
+
+        $validateData = $request->validate([
+            'brand' => 'required|in:seat,peugeot,citroen|',
+            'model' => 'required|in:C4,Leon ',
+            'production_year' => 'required|numeric',
+            'seats' => 'required|numeric',
+            'price' => 'required|numeric',
+            'fuel' => 'required|in:essence,diesel',
+            'speed' => 'required|in:manual,automatic',
+        ]);
+        $car = new Car([
+            "brand" => $validateData["brand"],
+            "model" => $validateData["model"],
+            "production_year" => $validateData["production_year"],
+            "seats" => $validateData["seats"],
+            "price" => $validateData["price"],
+            "fuel" => $validateData["fuel"],
+            "speed" => $validateData["speed"]
+
+        ]);
+
+        // Get the agency of the current user.
+    $agency = Agency::where('user_id', auth()->user()->id);
+
+        // Associate it with the car.
+    $car->agency()->associate($agency)->save();
+    $car->save();
+
+     $carModel = CarModel::create([ /* We are missing this from the form... */]);
+     $car->carModel()->associate($carModel)->save();
     }
 
     /**
